@@ -1,0 +1,10 @@
+#main-div {
+  background-color: rgb(126, 231, 231);
+}
+
+.w-75 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
