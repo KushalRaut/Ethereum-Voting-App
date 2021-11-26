@@ -1,13 +1,13 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "E-Voting Application",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "nodemon server.js"
   },
-  "author": "",
+  "author": "Nirajan Kunwor",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
@@ -15,6 +15,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.12",
-    "router": "^1.3.5"
+    "multer": "^1.4.3",
+    "router": "^1.3.5",
+    "twilio": "^3.71.2"
   }
 }
