@@ -1,58 +1,77 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./login.css";
 import Image from "./123.jpg";
 
 const Login = () => {
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+
   const onSubmit = (e) => {
     e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    console.log(email, password);
+    const enteredEmail = emailInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
+
+    const inputDetails = {
+      email: enteredEmail,
+      password: enteredPassword,
+    };
+
+    console.log(inputDetails);
   };
+
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   const email = document.getElementById("email").value;
+  //   const password = document.getElementById("password").value;
+  //   console.log(email, password);
+  // };
 
   return (
     <div>
-      <section class="login-block">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 login-sec">
-              <h2 class="text-center">Login Now</h2>
-              <form class="login-form" onSubmit={onSubmit}>
-                <div class="form-group">
-                  <label for="exampleInputEmail1" class="text-uppercase">
-                    Email Id
-                  </label>
+      <section className="login-block">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 login-sec">
+              <h2 className="text-center">Login Now</h2>
+              <form className="login-form" onSubmit={onSubmit}>
+                <div className="form-group">
+                  <label className="text-uppercase">Email Id</label>
                   <input
                     type="text"
                     id="email"
-                    class="form-control"
+                    className="form-control"
                     placeholder=""
+                    ref={emailInputRef}
                   />
                 </div>
 
-                <div class="form-group">
-                  <label for="exampleInputPassword1" class="text-uppercase">
-                    Password
-                  </label>
+                <div className="form-group">
+                  <label className="text-uppercase">Password</label>
                   <input
                     type="password"
                     id="password"
-                    class="form-control"
+                    className="form-control"
                     placeholder=""
+                    ref={passwordInputRef}
                   />
                 </div>
 
                 <div>
-                  <button type="submit" class="btn btn-success">
+                  <button type="submit" className="btn btn-success">
                     Log In
                   </button>
                 </div>
               </form>
-              <div class="copy-text">Created with React Bootstrap </div>
+              <div className="copy-text">Created with React Bootstrap </div>
             </div>
 
-            <div class="col-md-8 banner-sec">
-              <img id="img" class="d-block img-fluid" src={Image} />
+            <div className="col-md-8 banner-sec">
+              <img
+                id="img"
+                className="d-block img-fluid"
+                src={Image}
+                alt="no-img"
+              />
             </div>
           </div>
         </div>
