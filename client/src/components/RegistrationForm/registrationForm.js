@@ -1,114 +1,127 @@
-import React from "react";
-import "./registrationForm.css";
+import React, { useRef } from "react";
+import "./RegistrationForm.css";
 import Image from "./456.jpg";
 
-function registrationForm() {
+const RegistrationForm = () => {
+  const enteredFullName = useRef();
+  const enteredEmailAddress = useRef();
+  const enteredLocation = useRef();
+  const enteredPassword = useRef();
+  const enteredPhoneNumber = useRef();
+  const enteredCitizenshipNumber = useRef();
+  let imageFile = {};
+
   const uploadImage = (files) => {
-    console.log(files[0]);
+    imageFile = files[0];
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const fullName = enteredFullName.current.value;
+    const email = enteredEmailAddress.current.value;
+    const location = enteredLocation.current.value;
+    const citizenshipNo = enteredCitizenshipNumber.current.value;
+    const phoneNo = enteredPhoneNumber.current.value;
+
+    const enteredRegistrationInfo = {
+      fullName,
+      email,
+      location,
+      citizenshipNo,
+      image: imageFile,
+      phoneNo,
+    };
+
+    console.log(enteredRegistrationInfo);
   };
 
   return (
     <div id="main-div">
-      <div class="container">
+      <div className="container">
         <h1> Registration Form</h1>
-        <div class="row">
-          <div class="col-5">
-            <form>
-              <label for="username" class="m-1">
-                Full Name
-              </label>
+        <div className="row">
+          <div className="col-5">
+            <form onSubmit={submitHandler}>
+              <label className="m-1">Full Name</label>
               <input
                 type="text"
-                class="form-control m-1"
+                className="form-control m-1"
                 id="username"
                 placeholder="Enter full name"
+                ref={enteredFullName}
               />
 
-              <label for="emailaddress" class="m-1">
-                Email address
-              </label>
+              <label className="m-1">Email address</label>
               <input
                 type="email"
-                class="form-control m-1"
+                className="form-control m-1"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
+                ref={enteredEmailAddress}
               />
 
-              <label for="Location" class="m-1">
-                Location
-              </label>
+              <label className="m-1">Location</label>
               <input
                 type="text"
-                class="form-control m-1"
+                className="form-control m-1"
                 id="locationid"
                 placeholder="Enter location"
+                ref={enteredLocation}
               />
 
-              <label for="citizenship-number" class="m-1">
-                Citizenship Number
-              </label>
+              <label className="m-1">Citizenship Number</label>
               <input
                 type="text"
-                class="form-control m-1"
+                className="form-control m-1"
                 id="citizenshipid"
                 placeholder="Enter citizenship number"
+                ref={enteredCitizenshipNumber}
               />
 
-              <label for="exampleInputPassword1" class="m-1">
-                Password
-              </label>
+              <label className="m-1">Password</label>
               <input
                 type="password"
-                class="form-control m-1"
+                className="form-control m-1"
                 id="exampleInputPassword1"
                 placeholder="Password"
+                ref={enteredPassword}
               />
 
-              <label for="phone-number" class="m-1">
-                Phone Number
-              </label>
+              <label className="m-1">Phone Number</label>
               <input
                 type="text"
-                class="form-control m-1"
+                className="form-control m-1"
                 id="phonenoid"
                 placeholder="Enter your phone number"
+                ref={enteredPhoneNumber}
               />
 
-              <div class="input-group mb-3">
-                <div class="custom-file">
+              <div className="input-group mb-3">
+                <div className="custom-file">
                   <input
                     type="file"
                     onChange={(event) => {
                       uploadImage(event.target.files);
                     }}
-                    class="custom-file-input mt-3 m-1"
+                    className="custom-file-input mt-3 m-1"
                     id="inputGroupFile02"
                   />
                 </div>
               </div>
 
-              <label for="exampleFormControlSelect1" class="m-1">
-                Select usertype
-              </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Voter</option>
-                <option>Candidate</option>
-                <option>Admin</option>
-              </select>
-
-              <button type="submit" class="btn btn-primary mt-4 mb-4">
+              <button type="submit" className="btn btn-primary mt-4 mb-4">
                 Submit
               </button>
             </form>
           </div>
-          <div class="col-7" id="registration-picture">
-            <img src={Image} class="w-75" />
+          <div className="col-7" id="registration-picture">
+            <img src={Image} className="w-75" />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default registrationForm;
+export default RegistrationForm;
