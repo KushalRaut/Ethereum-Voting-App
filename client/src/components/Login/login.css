@@ -127,3 +127,7 @@
 #img {
   width: 95%;
 }
+
+.error {
+  color: red;
+}
