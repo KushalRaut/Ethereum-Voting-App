@@ -1,30 +1,49 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
 import "./login.css";
 import Image from "./123.jpg";
 
 const Login = () => {
-  const emailInputRef = useRef();
-  const passwordInputRef = useRef();
+  const BASE_API_URL = "http://localhost:4000/api/user/login";
+  const navigate = useNavigate();
+  const [message, setMessage] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const enteredEmail = emailInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
-
-    const inputDetails = {
-      email: enteredEmail,
-      password: enteredPassword,
-    };
-
-    console.log(inputDetails);
+  const initialValues = {
+    email: "",
+    password: "",
   };
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   const email = document.getElementById("email").value;
-  //   const password = document.getElementById("password").value;
-  //   console.log(email, password);
-  // };
+  const onSubmit = (values) => {
+    axios
+      .post(BASE_API_URL, values, {
+        "Content-Type": "application/json",
+      })
+      .then((response) => {
+        if (response.data.status) {
+          setPhoneNumber(response.data.data);
+          navigate("/verify");
+        } else {
+          setMessage(response.data.message);
+        }
+      });
+  };
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("This field is required"),
+    password: Yup.string().required("This field is required"),
+  });
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
+  });
 
   return (
     <div>
@@ -33,16 +52,21 @@ const Login = () => {
           <div className="row">
             <div className="col-md-4 login-sec">
               <h2 className="text-center">Login Now</h2>
-              <form className="login-form" onSubmit={onSubmit}>
+              <form className="login-form" onSubmit={formik.handleSubmit}>
                 <div className="form-group">
-                  <label className="text-uppercase">Email Id</label>
+                  <label className="text-uppercase">Email</label>
                   <input
                     type="text"
                     id="email"
                     className="form-control"
-                    placeholder=""
-                    ref={emailInputRef}
+                    placeholder="Enter your email"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
                   />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="error">{formik.errors.email}</div>
+                  ) : null}
                 </div>
 
                 <div className="form-group">
@@ -51,18 +75,23 @@ const Login = () => {
                     type="password"
                     id="password"
                     className="form-control"
-                    placeholder=""
-                    ref={passwordInputRef}
+                    placeholder="Enter your password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.password}
                   />
+                  {formik.touched.password && formik.errors.password ? (
+                    <div className="error">{formik.errors.password}</div>
+                  ) : null}
                 </div>
 
                 <div>
                   <button type="submit" className="btn btn-success">
                     Log In
                   </button>
+                  {message ? <div className="error">{message}</div> : null}
                 </div>
               </form>
-              <div className="copy-text">Created with React Bootstrap </div>
             </div>
 
             <div className="col-md-8 banner-sec">

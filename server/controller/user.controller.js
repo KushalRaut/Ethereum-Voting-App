@@ -14,35 +14,31 @@ const client = require("twilio")(accountSID, authToken);
 export const userLogin = async (req, res) => {
   try {
     const body = req.body;
-    let userData;
-    const { email, password, user_type } = body;
+    const { email, password } = body;
+    const data = await User.findOne({ email });
 
-    if (user_type == null) return res.send("User type not found");
-
-    if (user_type === "voter") {
-      userData = await User.findOne({ email });
-    }
-
-    if (userData === null)
+    if (!data)
       return res
         .status(200)
-        .json({ status: false, message: "Email not found" });
-
-    if (userData && userData.password === password) {
-      client.verify
-        .services(serviceID)
-        .verifications.create({
-          to: `+977${userData.phone_No}`,
-          channel: "sms",
-        })
-        .then((data) => {
-          return res.status(200).json({ data: data });
+        .json({ status: false, message: "Invalid Email or Password" });
+    console.log(data.user_type);
+    if (data?.user_type === "voter") {
+      if (data && data.password === password) {
+        client.verify
+          .services(serviceID)
+          .verifications.create({
+            to: `+977${data.phone_No}`,
+            channel: "sms",
+          })
+          .then((data) => {
+            return res.status(200).json({ status: true, data: data.phone_No });
+          });
+      } else {
+        return res.status(200).json({
+          status: false,
+          message: "Invalid email or password",
         });
-    } else {
-      return res.status(400).json({
-        status: false,
-        message: "Invalid email or password",
-      });
+      }
     }
   } catch (error) {
     res.status(400).json({
@@ -96,6 +92,7 @@ export const userRegister = async (req, res) => {
     const body = req.body;
     const file = req.file;
     console.log(file);
+    console.log(body);
 
     const { email, phone_No, user_type, citizenship_no } = body;
     let userData;
@@ -107,18 +104,16 @@ export const userRegister = async (req, res) => {
     const checkPhoneNo = await User.findOne({ phone_No });
     const checkCitizenshipNo = await User.findOne({ citizenship_no });
 
-    if (checkEmail) {
-      return res.status(200).json({ message: "Email already used" });
-    }
-
-    if (checkPhoneNo) {
-      return res.status(200).json({ message: "Phone Number already used" });
+    if (checkEmail || checkPhoneNo) {
+      return res
+        .status(200)
+        .json({ status: false, message: "Email or Phone Number already used" });
     }
 
     if (checkCitizenshipNo) {
       return res
         .status(200)
-        .json({ message: "Citizenship Number must be unique" });
+        .json({ status: false, message: "Citizenship Number must be unique" });
     }
 
     body.pictureURL = picture_url;
