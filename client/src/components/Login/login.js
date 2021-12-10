@@ -10,7 +10,6 @@ const Login = () => {
   const BASE_API_URL = "http://localhost:4000/api/user/login";
   const navigate = useNavigate();
   const [message, setMessage] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
 
   const initialValues = {
     email: "",
