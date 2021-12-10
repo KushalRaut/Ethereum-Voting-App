@@ -21,7 +21,6 @@ export const userLogin = async (req, res) => {
       return res
         .status(200)
         .json({ status: false, message: "Invalid Email or Password" });
-    console.log(data.user_type);
     if (data?.user_type === "voter") {
       if (data && data.password === password) {
         client.verify
@@ -30,8 +29,10 @@ export const userLogin = async (req, res) => {
             to: `+977${data.phone_No}`,
             channel: "sms",
           })
-          .then((data) => {
-            return res.status(200).json({ status: true, data: data.phone_No });
+          .then((result) => {
+            return res
+              .status(200)
+              .json({ status: true, result: result, data: data });
           });
       } else {
         return res.status(200).json({

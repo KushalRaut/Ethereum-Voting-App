@@ -5,12 +5,12 @@ import * as Yup from "yup";
 import "./OtpVerification.css";
 import axios from "axios";
 
-function OtpVerification({ phoneNumber }) {
+function OtpVerification() {
   const BASE_API_URL = "http://localhost:4000/api/user/verifylogin";
   const [message, setMessage] = useState();
   const navigate = useNavigate();
   const initialValues = {
-    phoneNumber: "9861519373",
+    phoneNumber: sessionStorage.getItem("phoneNo"),
     code: "",
   };
 
