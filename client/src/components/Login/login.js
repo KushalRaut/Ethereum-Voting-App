@@ -24,7 +24,7 @@ const Login = () => {
       })
       .then((response) => {
         if (response.data.status) {
-          setPhoneNumber(response.data.data);
+          sessionStorage.setItem("phoneNo", response.data.data.phone_No);
           navigate("/verify");
         } else {
           setMessage(response.data.message);
