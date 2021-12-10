@@ -67,21 +67,13 @@ const RegistrationForm = () => {
     validationSchema,
   });
 
-  const submitHandler = async (e) => {
-    if (respData.status) {
-      navigate("/login");
-    } else {
-      setMessage(respData.message);
-    }
-  };
-
   return (
     <div id="main-div">
       <div className="container">
         <h1> Registration Form</h1>
         <div className="row">
           <div className="col-5">
-            <form onSubmit={submitHandler}>
+            <form onSubmit={formik.handleSubmit}>
               <div>
                 <label className="m-1">Full Name</label>
                 <input
@@ -184,6 +176,7 @@ const RegistrationForm = () => {
               <button type="submit" className="btn btn-primary mt-4 mb-4 ">
                 Submit
               </button>
+              {message ? <div className="error">{message}</div> : null}
             </form>
           </div>
           <div className="col-7" id="registration-picture">
