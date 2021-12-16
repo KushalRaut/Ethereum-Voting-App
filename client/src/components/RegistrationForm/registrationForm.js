@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FormikContext, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import "./registrationForm.css";
@@ -74,12 +74,12 @@ const RegistrationForm = () => {
         <div className="row">
           <div className="col-5">
             <form onSubmit={formik.handleSubmit}>
-              <div>
+              <div className="form-group">
                 <label className="m-1">Full Name</label>
                 <input
                   type="text"
                   className="form-control m-1"
-                  id="username"
+                  id="name"
                   placeholder="Enter full name"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -91,11 +91,11 @@ const RegistrationForm = () => {
               </div>
 
               <label className="m-1">Email address</label>
-              <div>
+              <div className="form-group">
                 <input
                   type="email"
                   className="form-control m-1"
-                  id="exampleInputEmail1"
+                  id="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
                   onChange={formik.handleChange}
@@ -108,11 +108,11 @@ const RegistrationForm = () => {
               </div>
 
               <label className="m-1">Location</label>
-              <div>
+              <div className="form-group">
                 <input
                   type="text"
                   className="form-control m-1"
-                  id="locationid"
+                  id="location"
                   placeholder="Enter location"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -124,40 +124,53 @@ const RegistrationForm = () => {
               </div>
 
               <label className="m-1">Citizenship Number</label>
-              <div>
+              <div className="form-group">
                 <input
                   type="text"
                   className="form-control m-1"
-                  id="citizenshipid"
+                  id="citizenship_no"
                   placeholder="Enter citizenship number"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.citizenship_no}
                 />
-                {}
+                {formik.touched.citizenship_no &&
+                formik.errors.citizenship_no ? (
+                  <div className="error">{formik.errors.citizenship_no}</div>
+                ) : null}
               </div>
 
               <label className="m-1">Password</label>
-              <input
-                type="password"
-                className="form-control m-1"
-                id="exampleInputPassword1"
-                placeholder="Password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-              />
+              <div>
+                <input
+                  type="password"
+                  className="form-control m-1"
+                  id="password"
+                  placeholder="Password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className="error">{formik.errors.password}</div>
+                ) : null}
+              </div>
 
               <label className="m-1">Phone Number</label>
-              <input
-                type="text"
-                className="form-control m-1"
-                id="phonenoid"
-                placeholder="Enter your phone number"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.phone_No}
-              />
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control m-1"
+                  id="phone_No"
+                  placeholder="Enter your phone number"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.phone_No}
+                />
+                {formik.touched.phone_No && formik.errors.phone_No ? (
+                  <div className="error">{formik.errors.phone_No}</div>
+                ) : null}
+              </div>
 
               <div className="input-group mb-3">
                 <div className="custom-file">
@@ -173,10 +186,12 @@ const RegistrationForm = () => {
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary mt-4 mb-4 ">
-                Submit
-              </button>
-              {message ? <div className="error">{message}</div> : null}
+              <div>
+                <button type="submit" className="btn btn-primary mt-4 mb-4 ">
+                  Submit
+                </button>
+                {message ? <div className="error">{message}</div> : null}
+              </div>
             </form>
           </div>
           <div className="col-7" id="registration-picture">
