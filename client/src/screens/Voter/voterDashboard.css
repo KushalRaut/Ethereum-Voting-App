@@ -1,0 +1,82 @@
+#bodyContainer {
+  height: 650px;
+  background-color: #e7ebf0ed;
+}
+
+.items {
+  border-radius: 2px;
+}
+.main-item {
+  align-self: flex-start;
+}
+.item-1 {
+  background-color: #f44336;
+  color: white;
+}
+.item-2 {
+  background-color: #03a9f4;
+  color: white;
+}
+.item-3 {
+  background-color: #4caf50;
+  color: white;
+}
+.item-4 {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.item-5 {
+  flex-direction: column;
+  background-color: white;
+  border-radius: 4px;
+}
+
+#profile-image {
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+#logo-image {
+  height: 70px;
+}
+
+hr {
+  width: 90%;
+  height: 4px;
+  color: black;
+}
+
+h3 {
+  font-family: "Bebas Neue";
+}
+
+#vote-container {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.btn-light {
+  font-family: "Bebas Neue";
+}
+#subbody {
+  flex-direction: column;
+}
+
+.graphs {
+  border: 1px solid gray;
+}
+
+.id-info {
+  border: 1px solid rgb(155, 149, 149);
+}
+
+.des {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+}
+
+.utilities{
+  
+  flex-direction: column;
+}
