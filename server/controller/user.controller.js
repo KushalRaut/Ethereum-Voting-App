@@ -50,40 +50,41 @@ export const userLogin = async (req, res) => {
 };
 
 export const verifyLogin = async (req, res) => {
-  try {
-    const { phoneNumber, code } = req.body;
-
-    if (code) {
-      client.verify
-        .services(serviceID)
-        .verificationChecks.create({
-          to: `+977${phoneNumber}`,
-          code: code,
-        })
-        .then((data) => {
+  const { phoneNumber, code } = req.body;
+  if (code.length === 6) {
+    client.verify
+      .services(serviceID)
+      .verificationChecks.create({
+        to: phoneNumber,
+        code: code,
+      })
+      .then((data) => {
+        if (data.valid) {
           res.status(200).json({
             status: true,
-            message: "Verification Successfull",
+            message: "User is Verified!!",
             data: data,
           });
-        })
-        .catch((error) => {
-          res.status(400).json({
+        } else {
+          return res.status(200).json({
             status: false,
-            message: "Invalid Code",
+            message: "Wrong phone number or code :(",
             error: error,
           });
+        }
+      })
+      .catch((error) => {
+        res.status(200).json({
+          status: false,
+          message: "Wrong phone number or code :(",
+          error: error,
         });
-    } else {
-      return res.send(400).json({
-        status: false,
-        message: "No code available to proceed",
       });
-    }
-  } catch (error) {
-    return res.status(400).json({
+  } else {
+    res.status(200).json({
       status: false,
-      message: error,
+      message: "Wrong phone number or code :(",
+      phoneNumber: phoneNumber,
     });
   }
 };
