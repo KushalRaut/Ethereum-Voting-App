@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import VoterDashboard from "./screens/Voter/VoterDashboard";
 import ChatBot from "./screens/chatbot/ChatBot";
 import Vote from "./components/Vote/Vote";
+import Verification from "./components/Face-Recognition/Verification";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/voter/dashboard" element={<VoterDashboard />} />
       <Route path="/chatbot" element={<ChatBot />} />
       <Route path="/vote" element={<Vote />} />
+      <Route path="/facial-verification" element={<Verification />} />
     </Routes>
   );
 };
