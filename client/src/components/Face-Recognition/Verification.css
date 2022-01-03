@@ -1,0 +1,20 @@
+.display-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.videobcg {
+  width: inherit;
+  height: inherit;
+  -o-filter: blur(1px);
+  filter: blur(2px);
+  object-fit: cover;
+  transform: scale(1.04);
+}
