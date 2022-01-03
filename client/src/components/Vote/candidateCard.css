@@ -1,0 +1,25 @@
+.main_card {
+  min-width: 240px;
+  min-height: 38vh;
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.img-container {
+  width: 100%;
+  height: 67%;
+}
+.body-container {
+  height: 43%;
+}
+#vote {
+  width: 100%;
+  height: 35px;
+  margin: auto;
+  border-radius: 15px;
+}
+#btn-container {
+  margin: auto;
+}
