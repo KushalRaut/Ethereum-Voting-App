@@ -9,6 +9,7 @@ import Verification from "./components/Face-Recognition/Verification";
 
 const App = () => {
   return (
+    <>
     <Routes>
       <Route path="/" exact element={<Login />} />
       <Route path="/login" element={<Login />} />
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/vote" element={<Vote />} />
       <Route path="/facial-verification" element={<Verification />} />
     </Routes>
+    </>
   );
 };
 
