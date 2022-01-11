@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Electionabi from "../../contracts/Election.json";
 import Navbar from "./Navbar";
 import Body from "./Body";
+import "./body.css";
 const Web3 = require("web3");
 
 const Vote = () => {
@@ -20,6 +21,10 @@ const Vote = () => {
   const [Candidate3, setCandidate3] = useState();
   const [Candidate4, setCandidate4] = useState();
   const [Candidate5, setCandidate5] = useState();
+  const [Candidate6, setCandidate6] = useState();
+  const [Candidate7, setCandidate7] = useState();
+  const [Candidate8, setCandidate8] = useState();
+  const [Candidate9, setCandidate9] = useState();
 
   const loadWeb3 = async () => {
     if (window.ethereum) {
@@ -55,6 +60,10 @@ const Vote = () => {
       const candidate3 = await election.methods.candidates(3).call();
       const candidate4 = await election.methods.candidates(4).call();
       const candidate5 = await election.methods.candidates(5).call();
+      const candidate6 = await election.methods.candidates(6).call();
+      const candidate7 = await election.methods.candidates(7).call();
+      const candidate8 = await election.methods.candidates(8).call();
+      const candidate9 = await election.methods.candidates(9).call();
       // const candidate1id = candidate1.id;
       // const candidate2id = candidate2.id;
       // const candidate1name = candidate1.name;
@@ -67,6 +76,10 @@ const Vote = () => {
       setCandidate3(candidate3);
       setCandidate4(candidate4);
       setCandidate5(candidate5);
+      setCandidate6(candidate6);
+      setCandidate7(candidate7);
+      setCandidate8(candidate8);
+      setCandidate9(candidate9);
 
       SetElectionsm(election);
       setloader(false);
@@ -84,6 +97,8 @@ const Vote = () => {
       .on("transactionhash", () => {
         console.log("Successfully ran");
       });
+
+    window.location.reload();
   };
 
   if (loader) {
@@ -91,7 +106,7 @@ const Vote = () => {
   }
 
   return (
-    <div>
+    <div className="vote-container">
       <Navbar account={currentaccount} />
       <Body
         candidate1={Candidate1}
@@ -99,6 +114,10 @@ const Vote = () => {
         candidate3={Candidate3}
         candidate4={Candidate4}
         candidate5={Candidate5}
+        candidate6={Candidate6}
+        candidate7={Candidate7}
+        candidate8={Candidate8}
+        candidate9={Candidate9}
         voteCandidate={votecandidate}
       />
     </div>

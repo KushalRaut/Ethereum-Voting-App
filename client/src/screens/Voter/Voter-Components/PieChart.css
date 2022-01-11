@@ -1,0 +1,14 @@
+.pie-chart {
+  font-family: sans-serif;
+  text-align: center;
+}
+.chart_container > p {
+  text-align: left;
+  padding-left: 10px;
+}
+.dchart-innertext-value {
+  display: none;
+}
+.dchart-legend {
+  border: 1px solid black !important;
+}

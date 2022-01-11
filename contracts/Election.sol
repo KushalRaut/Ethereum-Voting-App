@@ -21,11 +21,15 @@ contract Election {
     // constructor
     constructor() {
         // Here the candidates are initialized
-        addCandidates("KP Oli");
-        addCandidates("Sher Bahadur Deuba");
         addCandidates("Gagan Thapa");
-        addCandidates("Puspa Kamal Dahal");
+        addCandidates("Sher Bahadur Deuba");
         addCandidates("Dr.Baburam Bhattarai");
+        addCandidates("KP Oli");
+        addCandidates("Puspa Kamal Dahal");
+        addCandidates("Kamal Thapa");
+        addCandidates("Bidya Devi Bhandari");
+        addCandidates("Prakash Man Singh");
+        addCandidates("Madhav Kumar Nepal");
     }
 
     //setting the addCandidates as private

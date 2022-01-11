@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
@@ -48,7 +48,7 @@ const Login = () => {
     <div>
       <section className="login-block">
         <div className="container">
-          <div className="row">
+          <div className="row h-100">
             <div className="col-md-4 login-sec">
               <h2 className="text-center">Login Now</h2>
               <form className="login-form" onSubmit={formik.handleSubmit}>
@@ -85,21 +85,23 @@ const Login = () => {
                 </div>
 
                 <div>
-                  <button type="submit" className="btn btn-success">
+                  <button type="submit" id="submit-btn" className="btn btn-success rounded">
                     Log In
                   </button>
+                  <div className="to_registration">
+                    <Link to="/register">
+                      <a href="#" className="m-2">
+                        Register Now
+                      </a>
+                    </Link>
+                  </div>
                   {message ? <div className="error">{message}</div> : null}
                 </div>
               </form>
             </div>
 
-            <div className="col-md-8 banner-sec">
-              <img
-                id="img"
-                className="d-block img-fluid"
-                src={Image}
-                alt="no-img"
-              />
+            <div className="col-md-8 banner-sec" id="image_section">
+              <img id="img" className="img-fluid" src={Image} alt="no-img" />
             </div>
           </div>
         </div>
