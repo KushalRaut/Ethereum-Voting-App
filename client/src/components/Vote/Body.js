@@ -25,15 +25,6 @@ const Body = ({
 }) => {
   const [Candidate, setCandidate] = useState("");
 
-  const onchange = (e) => {
-    setCandidate(e.target.value);
-  };
-
-  const onsubmit = (e) => {
-    e.preventDefault();
-    if (Candidate.id !== 0) voteCandidate(Number(Candidate));
-    else window.alert("Failed");
-  };
   return (
     <div>
       <div className="vote-body">
