@@ -6,6 +6,7 @@ import "./body.css";
 const Web3 = require("web3");
 
 const Vote = () => {
+  
   useEffect(() => {
     loadWeb3();
     LoadBlockchaindata();
@@ -26,6 +27,7 @@ const Vote = () => {
   const [Candidate8, setCandidate8] = useState();
   const [Candidate9, setCandidate9] = useState();
 
+  //Metamask popup
   const loadWeb3 = async () => {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -37,12 +39,14 @@ const Vote = () => {
     }
   };
 
+  //load the data from blockchain
   const LoadBlockchaindata = async () => {
     const web3 = window.web3;
     setloader(true);
+    
     const accounts = await web3.eth.getAccounts();
-
     const account = accounts[0];
+    
     setcurrentaccount(account);
 
     const networkId = await web3.eth.net.getId();
@@ -64,12 +68,6 @@ const Vote = () => {
       const candidate7 = await election.methods.candidates(7).call();
       const candidate8 = await election.methods.candidates(8).call();
       const candidate9 = await election.methods.candidates(9).call();
-      // const candidate1id = candidate1.id;
-      // const candidate2id = candidate2.id;
-      // const candidate1name = candidate1.name;
-      // const candidate2name = candidate2.name;
-      // const candidate1votecount = candidate1.votecount;
-      // const candidate2votecount = candidate2.votecount;
 
       setCandidate1(candidate1);
       setCandidate2(candidate2);
