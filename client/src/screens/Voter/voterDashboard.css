@@ -1,83 +1,152 @@
-#bodyContainer {
-  height: 100vh;
-  max-width: 100vw;
-  background-color: #e7ebf0ed;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+.logo {
+  margin-right: 0 !important;
+}
+.navbar-dark {
+  min-height: 90px;
 }
 
-.items {
-  border-radius: 2px;
-}
-.main-item {
-  align-self: flex-start;
-}
-.item-1 {
-  background-color: #f44336;
-  color: white;
-}
-.item-2 {
-  background-color: #03a9f4;
-  color: white;
-}
-.item-3 {
-  background-color: #4caf50;
-  color: white;
-}
-.item-4 {
-  background-color: #3f51b5;
-  color: white;
-}
-
-.item-5 {
-  flex-direction: column;
-  background-color: white;
-  border: 1px solid gray;
-  border-radius: 4px;
-}
-
-#profile-image {
-  border: 1px solid grey;
-  border-radius: 50%;
-}
-
-#logo-image {
-  height: 70px;
-}
-
-hr {
-  width: 90%;
-  height: 4px;
-  color: black;
-}
-
-h3 {
-  font-family: "Bebas Neue";
-}
-
-#vote-container {
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.btn-light {
-  font-family: "Bebas Neue";
-}
-#subbody {
-  flex-direction: column;
-}
-
-.graphs {
-  border: 1px solid gray;
-}
-
-.id-info {
-  border: 1px solid rgb(155, 149, 149);
-}
-
-.des {
-  font-family: "Oswald", sans-serif;
+.nav-title {
+  font-size: xx-large;
   font-weight: bold;
 }
 
-.utilities {
-  flex-direction: column;
+.links {
+  text-decoration: none;
+  color: white;
+}
+.links:hover {
+  color: black;
+}
+.sidebar-items {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  height: 60px;
+  color: white;
+  margin-left: 3rem;
+}
+
+.sidebar-titles:hover {
+  color: #212529;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  height: 60px;
+}
+.link:hover {
+  color: #212529;
+}
+
+.sidebar-items:hover {
+  background-color: rgb(236, 230, 230);
+  color: #212529;
+}
+
+.sidebar {
+  height: 90vh;
+  background-color: #212529;
+}
+
+.vote-div {
+  height: 23vh;
+  border-radius: 3px;
+}
+
+.card-vote {
+  background-color: #1181f8 !important;
+}
+
+.card-footer {
+  text-decoration: none;
+}
+
+.card-result {
+  background-color: #28a745 !important;
+}
+
+.card-live {
+  background-color: #ffc107 !important ;
+}
+
+.card-info {
+  background-color: #17a2b8 !important;
+}
+
+.card-chat {
+  background-color: #dc3545 !important;
+}
+
+.bg-footer {
+  background-color: rgba(236, 231, 231, 0.911);
+}
+
+.dp-image {
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-family: 'Roboto', sans-serif;
+}
+
+.options {
+  position: absolute;
+  top: 68px;
+  right: 27px;
+  z-index: 999;
+  height: 160px;
+  width: 150px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid rgb(216, 213, 213);
+}
+
+.option {
+  display: block;
+  color: #212529;
+  height: 40px;
+  width: 150px;
+  text-align: left;
+  padding-left: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.option-link {
+  text-decoration: none;
+  color: #212529;
+}
+
+@media only screen and (max-width: 993px) {
+  .sidebar {
+    height: 140vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 28px !important ;
+  }
+  .nav-title {
+    font-size: 24px !important;
+  }
+  .sidebar {
+    max-height: 425px !important;
+  }
+}
+@media only screen and (device-width: 375px) {
+  .options {
+    position: absolute;
+    top: 110px;
+    left: 10px;
+    z-index: 999;
+  }
 }
