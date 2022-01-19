@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Pimage from './ppphoto.jpg'
-import './voterDashboard.css'
+import Pimage from '../Voter/ppphoto.jpg'
+import '../Voter/voterDashboard.css'
 import { Link } from 'react-router-dom'
 import ChatBot from '../chatbot/ChatBot'
 import { SiHiveBlockchain } from 'react-icons/si'
@@ -8,9 +8,10 @@ import { RiDashboardLine } from 'react-icons/ri'
 import { FaUserEdit, FaVoteYea, FaCaretDown } from 'react-icons/fa'
 import { ImStatsBars } from 'react-icons/im'
 import { IoMdChatboxes } from 'react-icons/io'
+import { RiLiveFill } from 'react-icons/ri'
 import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
 
-const VoterDashboard = () => {
+const CandidateDashboard = () => {
   const [options, setOptions] = useState(false)
 
   const optionsHandler = () => {
@@ -48,17 +49,17 @@ const VoterDashboard = () => {
                 </div>
                 <div className="option">
                   <Link className="option-link" to="/voter/votes">
-                  <span className="d-block">Votes</span>
+                    <span className="d-block">Votes</span>
                   </Link>
                 </div>
                 <div className="option">
                   <Link className="option-link" to="/voter/help">
-                  <span className="d-block">Help</span>
+                    <span className="d-block">Help</span>
                   </Link>
                 </div>
                 <div className="option">
                   <Link className="option-link" to="/">
-                  <span className="d-block">Logout</span>
+                    <span className="d-block">Logout</span>
                   </Link>
                 </div>
               </div>
@@ -73,7 +74,7 @@ const VoterDashboard = () => {
         <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/dashboard" className="link d-block">
+              <Link to="/candidate/dashboard" className="link d-block">
                 <RiDashboardLine />
                 <span className="mx-3 py-2">Dashboard</span>
               </Link>
@@ -81,7 +82,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/profile" className="link d-block">
+              <Link to="/candidate/profile" className="link d-block">
                 <FaUserEdit />
                 <span className="mx-3 py-2">User</span>
               </Link>
@@ -89,15 +90,15 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/vote" className="link d-block">
-                <FaVoteYea />
-                <span className="mx-3 py-2">Vote</span>
+              <Link to="/candidate/live" className="link d-block">
+                <RiLiveFill />
+                <span className="mx-3 py-2">Go Live</span>
               </Link>
             </div>
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/results" className="link d-block">
+              <Link to="/candidate/results" className="link d-block">
                 <ImStatsBars />
                 <span className="mx-3 py-2">Analytics</span>
               </Link>
@@ -105,7 +106,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/chat" className="link d-block">
+              <Link to="/candidate/chat" className="link d-block">
                 <IoMdChatboxes />
                 <span className="mx-3 py-2">Message</span>
               </Link>
@@ -113,7 +114,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/support" className="link d-block">
+              <Link to="/support" className="link d-block">
                 <MdSupportAgent />
                 <span className="mx-3 py-2">Support</span>
               </Link>
@@ -132,16 +133,16 @@ const VoterDashboard = () => {
         {/* DashBoard */}
         <div className="dashboard col-12 col-lg-9 col-md-7 col-sm-6">
           <div className="row m-3">
-            <h1 className="dashboard-title mb-4">VOTER DASHBOARD</h1>
+            <h1 className="dashboard-title mb-4">CANDIDATE DASHBOARD</h1>
             <div className="vote-div">
               <div class="card card-vote w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h1 className="text-white py-3">VOTE NOW</h1>
+                    <h1 className="text-white py-3">VIEW LIVE RESULTS</h1>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/vote">
-                  <span class="float-left">Goto vote UI</span>
+                <Link class="card-footer text-white " to="/candidate/results">
+                  <span class="float-left">View Realtime Results</span>
                 </Link>
               </div>
             </div>
@@ -151,11 +152,11 @@ const VoterDashboard = () => {
               <div class="card card-result w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h2 className="text-white py-3">RESULTS</h2>
+                    <h2 className="text-white py-3">GO LIVE</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/results">
-                  <span class="float-left">View Realtime Results</span>
+                <Link class="card-footer text-white " to="/candidate/live">
+                  <span class="float-left">Go live to voters</span>
                 </Link>
               </div>
             </div>
@@ -166,8 +167,8 @@ const VoterDashboard = () => {
                     <h2 className="text-white py-3">CHAT</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/chat">
-                  <span class="float-left">Message with candidates</span>
+                <Link class="card-footer text-white " to="/candidate/chat">
+                  <span class="float-left">Message with voters</span>
                 </Link>
               </div>
             </div>
@@ -178,7 +179,7 @@ const VoterDashboard = () => {
                     <h2 className="text-white py-3">VIEW INFO</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/profile">
+                <Link class="card-footer text-white " to="/candidate/profile">
                   <span class="float-left">View & Edit Info</span>
                 </Link>
               </div>
@@ -187,11 +188,11 @@ const VoterDashboard = () => {
               <div class="card card-live w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h2 className="text-white py-3">LIVE FEED</h2>
+                    <h2 className="text-white py-3">MANIFESTO</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/live">
-                  <span class="float-left">View live speech</span>
+                <Link class="card-footer text-white " to="/candidate/manifesto">
+                  <span class="float-left">View manifesto</span>
                 </Link>
               </div>
             </div>
@@ -203,4 +204,4 @@ const VoterDashboard = () => {
   )
 }
 
-export default VoterDashboard
+export default CandidateDashboard
