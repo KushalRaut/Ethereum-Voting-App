@@ -18,7 +18,7 @@ const VoterDashboard = () => {
       <Navbar/>
 
       {/* Body */}
-      <div className="row dashboard-container">
+      <div className="row dashboard-container"> 
         {/* Sidebar */}
         <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
           <div className="sidebar-items">

@@ -1,3 +1,4 @@
+
 import Login from './components/Login/login'
 import RegistrationForm from './components/RegistrationForm/registrationForm'
 import OtpVerification from './components/OtpVerification/OtpVerification'
@@ -9,9 +10,12 @@ import Vote from './components/Vote/Vote'
 import Verification from './components/Face-Recognition/Verification'
 import CandidateManifesto from './components/Candidate/CandidateManifesto'
 
+
+
 const App = () => {
   return (
     <>
+
       <Routes>
         <Route path="/" exact element={<Login />} />
         <Route path="/login" element={<Login />} />
@@ -24,6 +28,7 @@ const App = () => {
         <Route path="/voter/vote" element={<Vote />} />
         <Route path="/facial-verification" element={<Verification />} />
       </Routes>
+
     </>
   )
 }
