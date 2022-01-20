@@ -1,0 +1,62 @@
+.logo {
+  margin-right: 0 !important;
+}
+.navbar-dark {
+  min-height: 90px;
+}
+
+.nav-title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.dp-image {
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.options {
+  position: absolute;
+  top: 68px;
+  right: 27px;
+  z-index: 999;
+  height: 160px;
+  width: 150px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid rgb(216, 213, 213);
+}
+
+.option {
+  display: block;
+  color: #212529;
+  height: 40px;
+  width: 150px;
+  text-align: left;
+  padding-left: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.option-link {
+  text-decoration: none;
+  color: #212529;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 28px !important ;
+  }
+  .nav-title {
+    font-size: 24px !important;
+  }
+}
+@media only screen and (device-width: 375px) {
+  .options {
+    position: absolute;
+    top: 110px;
+    left: 10px;
+    z-index: 999;
+  }
+}
