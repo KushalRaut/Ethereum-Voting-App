@@ -1,0 +1,60 @@
+.manifesto {
+  background-color: rgba(243, 243, 243, 0.925);
+}
+
+.manifesto-form-container {
+  margin: auto;
+  max-height: auto;
+  background-color: white;
+}
+
+.form-group {
+}
+
+.img-btn {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 1rem;
+  border: 1px solid rgb(189, 189, 189);
+}
+
+.preview-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+}
+.form-label {
+  padding-left: 0 !important;
+  font-size: large;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.party {
+  height: 38px;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 4px;
+}
+
+.manifesto-words {
+  height: 38px;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 4px;
+}
+.manifesto-desc {
+  height: 85px;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 4px;
+}
+
+.submit-button {
+  height: 45px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: #ffc107;
+  font-weight: 500;
+  border-radius: 4px;
+}

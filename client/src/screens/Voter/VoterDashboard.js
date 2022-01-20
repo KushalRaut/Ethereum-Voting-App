@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Pimage from './ppphoto.jpg'
 import './voterDashboard.css'
 import { Link } from 'react-router-dom'
+import Navbar from '../../components/Layouts/Navbar'
 import ChatBot from '../chatbot/ChatBot'
 import { SiHiveBlockchain } from 'react-icons/si'
 import { RiDashboardLine } from 'react-icons/ri'
@@ -11,64 +12,13 @@ import { IoMdChatboxes } from 'react-icons/io'
 import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
 
 const VoterDashboard = () => {
-  const [options, setOptions] = useState(false)
-
-  const optionsHandler = () => {
-    if (options) {
-      setOptions(false)
-    } else {
-      setOptions(true)
-    }
-  }
 
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark">
-        <div className="logo text-white mx-5">
-          <h1 className="d-inline mx-1">
-            <SiHiveBlockchain />
-          </h1>
-          <span className="nav-title  mx-1">E-VOTE NEPAL</span>
-        </div>
-        <div className="navbar-brand text-white">
-          <div
-            className="btn btn-dark text-white d-flex"
-            onClick={optionsHandler}
-          >
-            <img src={Pimage} className="dp-image" />
-            <span className="user-name py-2">
-              Kushal Raut <FaCaretDown />
-            </span>
-            {options && (
-              <div className="options">
-                <div className="option">
-                  <Link className="option-link" to="/voter/profile">
-                    <span className="d-block">Profile</span>
-                  </Link>
-                </div>
-                <div className="option">
-                  <Link className="option-link" to="/voter/votes">
-                  <span className="d-block">Votes</span>
-                  </Link>
-                </div>
-                <div className="option">
-                  <Link className="option-link" to="/voter/help">
-                  <span className="d-block">Help</span>
-                  </Link>
-                </div>
-                <div className="option">
-                  <Link className="option-link" to="/">
-                  <span className="d-block">Logout</span>
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </nav>
+      <Navbar/>
 
       {/* Body */}
-      <div className="row">
+      <div className="row dashboard-container"> 
         {/* Sidebar */}
         <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
           <div className="sidebar-items">
