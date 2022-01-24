@@ -1,3 +1,11 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const adminSchema = mongoose.Schema({});
+const adminSchema = Schema(
+  {
+    chatBotQuestions: [{ type: String }],
+    user: { type: Schema.Types.ObjectId, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
