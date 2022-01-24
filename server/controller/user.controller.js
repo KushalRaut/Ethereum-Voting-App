@@ -2,6 +2,7 @@ import User from "../model/user.model.js";
 import dotenv from "dotenv";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
+import bcrypt from "bcrypt";
 
 dotenv.config();
 
@@ -22,18 +23,30 @@ export const userLogin = async (req, res) => {
         .status(200)
         .json({ status: false, message: "Invalid Email or Password" });
     if (data?.user_type === "voter") {
-      if (data && data.password === password) {
-        client.verify
-          .services(serviceID)
-          .verifications.create({
-            to: `+977${data.phone_No}`,
-            channel: "sms",
-          })
-          .then((result) => {
-            return res
-              .status(200)
-              .json({ status: true, result: result, data: data });
-          });
+      if (data) {
+        bcrypt.compare(password, data.password, function (err, result) {
+          // result == true
+          if (result === true) {
+            client.verify
+              .services(serviceID)
+              .verifications.create({
+                to: `+977${data.phone_No}`,
+                channel: "sms",
+              })
+              .then((result) => {
+                return res
+                  .status(200)
+                  .json({ status: true, result: result, data: data });
+              });
+          } else {
+            return res.status(200).json({
+              status: false,
+              message: err,
+            });
+          }
+        });
+      } else if (data?.user_type === "candidate") {
+      } else if (data?.user_type === "admin") {
       } else {
         return res.status(200).json({
           status: false,
@@ -93,10 +106,9 @@ export const userRegister = async (req, res) => {
   try {
     const body = req.body;
     const file = req.file;
-    console.log(file);
-    console.log(body);
+    const saltRounds = 10;
 
-    const { email, phone_No, user_type, citizenship_no } = body;
+    const { email, phone_No, user_type, citizenship_no, password } = body;
     let userData;
     let picture_url = new Date().toUTCString() + file?.filename;
 
@@ -119,13 +131,18 @@ export const userRegister = async (req, res) => {
     }
 
     body.pictureURL = picture_url;
+    body.user_type = "voter";
+    bcrypt.hash(password, saltRounds, async (err, hash) => {
+      body.password = hash;
+      userData = await User.create(body);
+    });
 
-    if (user_type == "voter") {
-      userData = await User.create(body);
-    } else {
-      body.user_type = "voter";
-      userData = await User.create(body);
-    }
+    // if (user_type == "voter") {
+    //   userData = await User.create(body);
+    // } else {
+    //   body.user_type = "voter";
+    //   userData = await User.create(body);
+    // }
 
     if (userData) {
       res.status(200).json({
