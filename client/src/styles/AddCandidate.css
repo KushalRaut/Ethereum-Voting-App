@@ -1,0 +1,11 @@
+.add-container {
+  z-index: 999;
+  width: 380px;
+  min-height: 90vh;
+  background-color: rgb(247, 247, 247);
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

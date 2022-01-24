@@ -6,6 +6,10 @@ contract Election {
     struct Candidate {
         uint256 id;
         string name;
+        string party;
+        string dob;
+        string img;
+        string slogan;
         uint256 votecount;
     }
 
@@ -21,25 +25,35 @@ contract Election {
     // constructor
     constructor() {
         // Here the candidates are initialized
-        addCandidates("Gagan Thapa");
-        addCandidates("Sher Bahadur Deuba");
-        addCandidates("Dr.Baburam Bhattarai");
-        addCandidates("KP Oli");
-        addCandidates("Puspa Kamal Dahal");
-        addCandidates("Kamal Thapa");
-        addCandidates("Bidya Devi Bhandari");
-        addCandidates("Prakash Man Singh");
-        addCandidates("Madhav Kumar Nepal");
+         addCandidates("KP Oli","CPN","22/02/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I love comedy Nepal");
+        addCandidates("Sher Bahadur Deuba","NCP","30/05/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I don't do anthing");
     }
 
-    //setting the addCandidates as private
-    function addCandidates(string memory name) private {
+    //setting the addCandidates as public
+     function addCandidates(string memory name,string memory party,string memory dob,string memory img,string memory slogan) public{
         candidatesCount++;
-        candidates[candidatesCount] = Candidate(candidatesCount, name, 0);
+        candidates[candidatesCount] = Candidate(candidatesCount,name,party,dob,img,slogan,0);
     }
+
+    //function to delete the canidate
+     function delCandidates(uint id) public{
+        while(id < candidatesCount){
+            candidates[id] = candidates[id+1];
+            id += 1;
+        }
+        delete candidates[candidatesCount];
+        candidatesCount--;
+    }
+
+
 
     //setting up the event that is to be triggered once the transaction is done i.e voting
-    event electionupdated(uint256 id, string name, uint256 votecount);
+     event votesuccess(
+        uint id,
+        string name,
+        string party,
+        uint votecount
+    );
 
     function Vote(uint256 _id) public {
         //make sure that the candiate has not votes
@@ -54,10 +68,6 @@ contract Election {
         //now setting the voted value of the voter to be true
         votedornot[msg.sender] = true;
 
-        emit electionupdated(
-            _id,
-            candidates[_id].name,
-            candidates[_id].votecount
-        );
+        emit votesuccess( _id, candidates[_id].name,candidates[_id].party, candidates[_id].votecount);
     }
 }
