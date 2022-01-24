@@ -26,6 +26,7 @@
   height: 150px;
   object-fit: contain;
   display: block;
+  border-radius: 50%;
 }
 .form-label {
   padding-left: 0 !important;
