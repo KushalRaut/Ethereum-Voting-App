@@ -33,7 +33,7 @@ const HomeNav = ({ toggle }) => {
     <>
       <Nav scrollNav={scrollNav}>
         <NavbarContainer>
-          <NavLogo to="/newHome">
+          <NavLogo to="/">
             <SiHiveBlockchain /> E-VOTE NEPAL
           </NavLogo>
           <MobileIcon onClick={toggle}>
@@ -90,7 +90,7 @@ const HomeNav = ({ toggle }) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to="/login">Sign In</NavBtnLink>
+            <NavBtnLink to="/login">Log In</NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>

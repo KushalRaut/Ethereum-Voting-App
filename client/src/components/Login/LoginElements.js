@@ -109,9 +109,18 @@ export const FormButton = styled.button`
   cursor: pointer;
 `
 
-export const Text = styled.span`
-  text-align: center;
+export const Text = styled(Link)`
+  text-align: start;
   margin-top: 24px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  text-decoration: none;
+
+  &:hover {
+    color: #01bf71;
+    font-weight: bold;
+  }
+`
+export const ErrorText = styled.span`
+  color: white;
 `
