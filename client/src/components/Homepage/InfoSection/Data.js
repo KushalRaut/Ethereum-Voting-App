@@ -1,0 +1,51 @@
+export const homeObjOne = {
+  id: 'about',
+  lightBg: false,
+  lightText: true,
+  lightTextdesc: true,
+  topLine: "DEVELOPER'S VISION",
+  headline: 'Full Transparency and Security',
+  description:
+    'E-Vote Nepal is developed by a team of aspiring computer engineers who intend to revolutionalize the traditional voting process.',
+  buttonLabel: 'Get started',
+  imgStart: false,
+  img: require('../images/voting.svg').default,
+  alt: 'Voting',
+  dark: true,
+  primary: true,
+  darkText: false,
+}
+export const homeObjTwo = {
+  id: 'discover',
+  lightBg: true,
+  lightText: false,
+  lightTextdesc: false,
+  topLine: 'Realtime Results',
+  headline: 'No Queues & Instant Results',
+  description:
+    'With E-Vote Nepal you will now be able to vote without the hassle of standing in long queues and we also assure with full confidence that your vote will never be tampered.',
+  buttonLabel: 'Get started',
+  imgStart: true,
+  img: require('../images/ether.svg').default,
+  alt: 'ether',
+  dark: false,
+  primary: false,
+  darkText: true,
+}
+export const homeObjThree = {
+  id: 'signup',
+  lightBg: true,
+  lightText: false,
+  lightTextdesc: false,
+  topLine: 'Get Involved',
+  headline: 'Register Now to Acess all Features',
+  description:
+    'Enter your valid national details to become registered and introduce yourself to the decentralized world.',
+  buttonLabel: 'Get started',
+  imgStart: true,
+  img: require('../images/chain.svg').default,
+  alt: 'chain',
+  dark: false,
+  primary: false,
+  darkText: true,
+}
