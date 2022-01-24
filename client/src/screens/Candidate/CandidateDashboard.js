@@ -13,12 +13,14 @@ import { RiLiveFill } from 'react-icons/ri'
 import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
 
 const CandidateDashboard = () => {
+
   return (
     <>
       <Navbar />
 
       {/* Body */}
       <div className="row dashboard-container">
+
         {/* Sidebar */}
         <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
           <div className="sidebar-items">

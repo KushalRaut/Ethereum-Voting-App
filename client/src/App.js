@@ -11,9 +11,11 @@ import Verification from './components/Face-Recognition/Verification'
 import CandidateManifesto from './components/Candidate/CandidateManifesto'
 import AddCandidate from './components/Blockchain/AddCandidate'
 
+
 const App = () => {
   return (
     <>
+
       <Routes>
         <Route path="/newHome" exact element={<HomePage />} />
         <Route path="/" exact element={<Login />} />
@@ -28,6 +30,7 @@ const App = () => {
         <Route path="/facial-verification" element={<Verification />} />
         <Route path="/voter/profile" element={<AddCandidate />} />
       </Routes>
+
     </>
   )
 }
