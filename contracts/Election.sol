@@ -10,7 +10,7 @@ contract Election {
         string citizenshipNo;
         string dob;
         string img;
-        string slogan;
+        string email;
         uint256 votecount;
     }
 
@@ -26,14 +26,17 @@ contract Election {
     // constructor
     constructor() {
         // Here the candidates are initialized
-         addCandidates("KP Oli","CPN","010570487","22/02/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I love comedy Nepal");
-        addCandidates("Sher Bahadur Deuba","NCP","015678998","30/05/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I don't do anthing");
+         addCandidates("KP Oli","CPN","010570487","22/02/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","kpoli1@nepal.com");
+        addCandidates("Sher Bahadur Deuba","NCP","015678998","30/05/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","sherbdrdeuba@nepal.com");
+        addCandidates("Gagan Thapa","NCP","015678795","30/05/1982","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","gaganthapa@nepal.com");
+        addCandidates("Puspa Kamal Dahal","UML","015676985","30/05/1962","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","puspakdahal@nepal.com");
+        addCandidates("Kamal Thapa","RPP","015677867","30/05/1972","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","kamalthapa@nepal.com");
     }
 
     //setting the addCandidates as public
-     function addCandidates(string memory name,string memory party,string memory citizenshipNo,string memory dob,string memory img,string memory slogan) public{
+     function addCandidates(string memory name,string memory party,string memory citizenshipNo,string memory dob,string memory img,string memory email) public{
         candidatesCount++;
-        candidates[candidatesCount] = Candidate(candidatesCount,name,party,citizenshipNo,dob,img,slogan,0);
+        candidates[candidatesCount] = Candidate(candidatesCount,name,party,citizenshipNo,dob,img,email,0);
     }
 
     //function to delete the canidate

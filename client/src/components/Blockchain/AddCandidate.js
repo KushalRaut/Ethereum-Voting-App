@@ -11,7 +11,6 @@ const AddCandidate = () => {
   }, [])
 
   const [currentaccount, setcurrentaccount] = useState('')
-  const [candidates, setCandidates] = useState([{}])
   const [Electionsm, setElectionsm] = useState()
   const [image, setImage] = useState()
   const [preview, setPreview] = useState()
@@ -19,7 +18,6 @@ const AddCandidate = () => {
   const [candidateName, setCandidateName] = useState('')
   const [candidateParty, setCandidateParty] = useState('')
   const [candidateDOB, setCandidateDOB] = useState('')
-  const [candidateSlogan, setCandidateSlogan] = useState('')
   const [candidateEmail, setCandidateEmail] = useState('')
   const [candidateLocation, setCandidateLocation] = useState('')
   const [candidateCitizenNo, setCandidateCitizenNo] = useState('')
@@ -69,7 +67,6 @@ const AddCandidate = () => {
         candidate[i - 1] = { id, name, votecount }
       }
 
-      setCandidates(candidate)
       setElectionsm(election)
       console.log(candidate)
     } else {
@@ -77,9 +74,9 @@ const AddCandidate = () => {
     }
   }
 
-  const addCandidates = async (name, party, dob, img, slogan) => {
+  const addCandidates = async (name, party, citizenNo,dob,img,email) => {
     await Electionsm.methods
-      .addCandidates(name, party, dob, img, slogan)
+      .addCandidates(name, party,citizenNo ,dob, img, email)
       .send({ from: currentaccount })
       .on('transactionhash', () => {
         console.log('successfully added', name)
@@ -116,13 +113,14 @@ const AddCandidate = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
+
     addCandidates(
       candidateName,
       candidateParty,
       candidateCitizenNo,
       candidateDOB,
       imageurl,
-      candidateSlogan
+      candidateEmail
     )
   }
 
@@ -246,18 +244,7 @@ const AddCandidate = () => {
           }}
           required
         />
-        <label htmlFor="party-name" className="form-label">
-          Slogan
-        </label>
-        <textarea
-          type="text"
-          className="d-block w-100 party"
-          value={candidateSlogan}
-          onChange={(e) => {
-            setCandidateSlogan(e.target.value)
-          }}
-          required
-        />
+
         <button className="w-100 my-3 submit-button text-white">Submit</button>
       </form>
     </div>

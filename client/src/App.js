@@ -11,6 +11,7 @@ import Vote from './components/Vote/Vote'
 import Verification from './components/Face-Recognition/verification'
 import CandidateManifesto from './components/Candidate/CandidateManifesto'
 import AddCandidate from './components/Blockchain/AddCandidate'
+import ManageCandidates from './components/Blockchain/ManageCandidates'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/voter/vote" element={<Vote />} />
         <Route path="/facial-verification" element={<Verification />} />
         <Route path="/admin/addCandidate" element={<AddCandidate />} />
+        <Route path="/admin/manageCandidates" element={<ManageCandidates />} />
       </Routes>
     </>
   )

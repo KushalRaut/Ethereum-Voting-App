@@ -91,7 +91,7 @@ const AdminDashboard = () => {
               <div class="card card-result w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h2 className="text-white py-3">MANAGE CANDIDATE</h2>
+                    <h2 className="text-white py-3">MANAGE CANDIDATES</h2>
                   </div>
                 </div>
                 <Link
