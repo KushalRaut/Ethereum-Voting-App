@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/voter/vote" element={<Vote />} />
         <Route path="/facial-verification" element={<Verification />} />
-        <Route path="/voter/profile" element={<AddCandidate />} />
+        <Route path="/admin/addCandidate" element={<AddCandidate />} />
       </Routes>
     </>
   )

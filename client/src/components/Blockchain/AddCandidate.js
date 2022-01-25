@@ -20,6 +20,11 @@ const AddCandidate = () => {
   const [candidateParty, setCandidateParty] = useState('')
   const [candidateDOB, setCandidateDOB] = useState('')
   const [candidateSlogan, setCandidateSlogan] = useState('')
+  const [candidateEmail, setCandidateEmail] = useState('')
+  const [candidateLocation, setCandidateLocation] = useState('')
+  const [candidateCitizenNo, setCandidateCitizenNo] = useState('')
+  const [candidatePhoneNo, setCandidatePhoneNo] = useState('')
+
   const fileInputRef = useRef()
 
   //Metamask popup
@@ -114,6 +119,7 @@ const AddCandidate = () => {
     addCandidates(
       candidateName,
       candidateParty,
+      candidateCitizenNo,
       candidateDOB,
       imageurl,
       candidateSlogan
@@ -125,7 +131,7 @@ const AddCandidate = () => {
       <form className="px-3" onSubmit={submitHandler}>
         <h3 className="pt-2">New Candidate</h3>
         <label htmlFor="party-name" className="form-label">
-          Candidate photo
+          Photo
         </label>
         {preview ? (
           <img src={preview} className="preview-img" />
@@ -153,10 +159,11 @@ const AddCandidate = () => {
               setImage(null)
             }
           }}
+          required
         />
 
         <label htmlFor="party-name" className="form-label">
-          Candidate Name
+          Name
         </label>
         <input
           type="text"
@@ -165,9 +172,10 @@ const AddCandidate = () => {
           onChange={(e) => {
             setCandidateName(e.target.value)
           }}
+          required
         />
         <label htmlFor="party-name" className="form-label">
-          Candidate Party
+          Party
         </label>
         <input
           type="text"
@@ -176,9 +184,34 @@ const AddCandidate = () => {
           onChange={(e) => {
             setCandidateParty(e.target.value)
           }}
+          required
         />
         <label htmlFor="party-name" className="form-label">
-          Candidate DOB
+          Email
+        </label>
+        <input
+          type="text"
+          className="d-block w-100 party"
+          value={candidateEmail}
+          onChange={(e) => {
+            setCandidateEmail(e.target.value)
+          }}
+          required
+        />
+        <label htmlFor="party-name" className="form-label">
+          Citizenship No.
+        </label>
+        <input
+          type="text"
+          className="d-block w-100 party"
+          value={candidateCitizenNo}
+          onChange={(e) => {
+            setCandidateCitizenNo(e.target.value)
+          }}
+          required
+        />
+        <label htmlFor="party-name" className="form-label">
+          DOB
         </label>
         <input
           type="text"
@@ -187,9 +220,34 @@ const AddCandidate = () => {
           onChange={(e) => {
             setCandidateDOB(e.target.value)
           }}
+          required
         />
         <label htmlFor="party-name" className="form-label">
-          Candidate Slogan
+          Phone No.
+        </label>
+        <input
+          type="text"
+          className="d-block w-100 party"
+          value={candidatePhoneNo}
+          onChange={(e) => {
+            setCandidatePhoneNo(e.target.value)
+          }}
+          required
+        />
+        <label htmlFor="party-name" className="form-label">
+          Location
+        </label>
+        <input
+          type="text"
+          className="d-block w-100 party"
+          value={candidateLocation}
+          onChange={(e) => {
+            setCandidateLocation(e.target.value)
+          }}
+          required
+        />
+        <label htmlFor="party-name" className="form-label">
+          Slogan
         </label>
         <textarea
           type="text"
@@ -198,8 +256,9 @@ const AddCandidate = () => {
           onChange={(e) => {
             setCandidateSlogan(e.target.value)
           }}
+          required
         />
-        <button className="w-100 mt-3 submit-button text-white">Submit</button>
+        <button className="w-100 my-3 submit-button text-white">Submit</button>
       </form>
     </div>
   )

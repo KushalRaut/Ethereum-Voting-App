@@ -7,6 +7,7 @@ contract Election {
         uint256 id;
         string name;
         string party;
+        string citizenshipNo;
         string dob;
         string img;
         string slogan;
@@ -25,14 +26,14 @@ contract Election {
     // constructor
     constructor() {
         // Here the candidates are initialized
-         addCandidates("KP Oli","CPN","22/02/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I love comedy Nepal");
-        addCandidates("Sher Bahadur Deuba","NCP","30/05/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I don't do anthing");
+         addCandidates("KP Oli","CPN","010570487","22/02/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I love comedy Nepal");
+        addCandidates("Sher Bahadur Deuba","NCP","015678998","30/05/1952","https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg","I don't do anthing");
     }
 
     //setting the addCandidates as public
-     function addCandidates(string memory name,string memory party,string memory dob,string memory img,string memory slogan) public{
+     function addCandidates(string memory name,string memory party,string memory citizenshipNo,string memory dob,string memory img,string memory slogan) public{
         candidatesCount++;
-        candidates[candidatesCount] = Candidate(candidatesCount,name,party,dob,img,slogan,0);
+        candidates[candidatesCount] = Candidate(candidatesCount,name,party,citizenshipNo,dob,img,slogan,0);
     }
 
     //function to delete the canidate
