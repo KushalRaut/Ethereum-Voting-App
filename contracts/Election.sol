@@ -49,6 +49,15 @@ contract Election {
         candidatesCount--;
     }
 
+    //function to edit the candidate
+    function editCandidates(uint id, string memory name, string memory party,string memory citizenshipNo,string memory dob,string memory email) public{
+        candidates[id].name = name;
+        candidates[id].party = party;
+        candidates[id].citizenshipNo = citizenshipNo;
+        candidates[id].dob = dob;
+        candidates[id].email = email;
+
+    }
 
 
     //setting up the event that is to be triggered once the transaction is done i.e voting

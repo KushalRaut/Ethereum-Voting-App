@@ -26,10 +26,12 @@ const Navbar = ({ account }) => {
     <>
       <nav className="navbar navbar-dark bg-dark">
         <div className="logo text-white mx-5">
-          <h1 className="d-inline mx-1">
-            <SiHiveBlockchain />
-          </h1>
-          <span className="nav-title  mx-1">E-VOTE NEPAL</span>
+          <div className="nav-logo">
+            <h1 className="d-inline mx-1">
+              <SiHiveBlockchain />
+            </h1>
+            <span className="nav-title  mx-1">E-VOTE NEPAL</span>
+          </div>
         </div>
         <div className="navbar-brand text-white">
           {account ? (

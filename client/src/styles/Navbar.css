@@ -4,7 +4,9 @@
 
 .logo {
   margin-right: 0 !important;
+  cursor: pointer;
 }
+
 .navbar-dark {
   min-height: 90px;
 }
@@ -13,6 +15,7 @@
   font-size: xx-large;
   font-weight: bold;
 }
+
 
 .dp-image {
   width: 50px;
@@ -52,7 +55,7 @@
   width: 150px;
   text-align: left;
   padding-left: 8px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .option-link {

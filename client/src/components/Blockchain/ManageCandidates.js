@@ -4,6 +4,7 @@ import axios from 'axios'
 import { MDBDataTable } from 'mdbreact'
 import Navbar from '../Layouts/Navbar'
 import '../../screens/Voter/voterDashboard.css'
+import EditCandidate from './EditCandidate'
 import { Link } from 'react-router-dom'
 import { RiDashboardLine } from 'react-icons/ri'
 import { FaUserEdit } from 'react-icons/fa'
@@ -21,6 +22,8 @@ const ManageCandidates = () => {
   const [currentaccount, setcurrentaccount] = useState('')
   const [candidates, setCandidates] = useState([])
   const [Electionsm, setElectionsm] = useState()
+  const [editCandidate, setEditCandidate] = useState(false)
+  const [editCandidateObj, setEditCandidateObj] = useState({})
 
   //Metamask popup
   const loadWeb3 = async () => {
@@ -91,6 +94,22 @@ const ManageCandidates = () => {
     window.location.reload()
   }
 
+  const editCandidates = async (id, name, party, citizenshipNo, dob, email) => {
+    await Electionsm.methods
+      .editCandidates(id, name, party, citizenshipNo, dob, email)
+      .send({ from: currentaccount })
+      .on('transactionhash', () => {
+        console.log('successfully edited', id)
+      })
+    setEditCandidate(false)
+    window.location.reload()
+  }
+
+  const editHandler = (edit) => {
+    setEditCandidate(true)
+    setEditCandidateObj(edit)
+  }
+
   const candidateData = () => {
     const data = {
       columns: [
@@ -148,6 +167,14 @@ const ManageCandidates = () => {
         dob: candidate.dob,
         actions: (
           <>
+            <button
+              className="btn btn-success mx-1"
+              onClick={() => {
+                editHandler(candidate)
+              }}
+            >
+              Edit
+            </button>
             <button
               className="btn btn-danger"
               onClick={() => {
@@ -225,12 +252,23 @@ const ManageCandidates = () => {
           </div>
 
           {/* DashBoard */}
-          <div className="dashboard col-12 col-lg-9 col-md-7 col-sm-6">
-            <div className="row m-4 py-2 overflow-hidden">
-              <h1>CANDIDATES LIST</h1>
-              <hr />
-              <MDBDataTable striped data={candidateData()} />
-            </div>
+          <div className="dashboard col-12 col-lg-9 col-md-7 col-sm-6 p-0">
+            {editCandidate ? (
+              <>
+                <EditCandidate
+                  candidate={editCandidateObj}
+                  editFunction={editCandidates}
+                />
+              </>
+            ) : (
+              <>
+                <div className="row m-4 py-2 overflow-hidden">
+                  <h1>CANDIDATES LIST</h1>
+                  <hr />
+                  <MDBDataTable striped data={candidateData()} />
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
