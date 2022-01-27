@@ -12,13 +12,12 @@ import { IoMdChatboxes } from 'react-icons/io'
 import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
 
 const VoterDashboard = () => {
-
   return (
     <>
-      <Navbar/>
+      <Navbar />
 
       {/* Body */}
-      <div className="row dashboard-container"> 
+      <div className="row dashboard-container">
         {/* Sidebar */}
         <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
           <div className="sidebar-items">
@@ -91,7 +90,7 @@ const VoterDashboard = () => {
                   </div>
                 </div>
                 <Link class="card-footer text-white " to="/voter/vote">
-                  <span class="float-left">Goto vote UI</span>
+                  <span class="float-left">Goto vote UI ❯</span>
                 </Link>
               </div>
             </div>
@@ -105,7 +104,7 @@ const VoterDashboard = () => {
                   </div>
                 </div>
                 <Link class="card-footer text-white " to="/voter/results">
-                  <span class="float-left">View Realtime Results</span>
+                  <span class="float-left">View Realtime Results ❯</span>
                 </Link>
               </div>
             </div>
@@ -117,7 +116,7 @@ const VoterDashboard = () => {
                   </div>
                 </div>
                 <Link class="card-footer text-white " to="/voter/chat">
-                  <span class="float-left">Message with candidates</span>
+                  <span class="float-left">Message with candidates ❯</span>
                 </Link>
               </div>
             </div>
@@ -129,7 +128,7 @@ const VoterDashboard = () => {
                   </div>
                 </div>
                 <Link class="card-footer text-white " to="/voter/profile">
-                  <span class="float-left">View & Edit Info</span>
+                  <span class="float-left">View & Edit Info ❯</span>
                 </Link>
               </div>
             </div>
@@ -141,7 +140,7 @@ const VoterDashboard = () => {
                   </div>
                 </div>
                 <Link class="card-footer text-white " to="/voter/live">
-                  <span class="float-left">View live speech</span>
+                  <span class="float-left">View live speech ❯</span>
                 </Link>
               </div>
             </div>

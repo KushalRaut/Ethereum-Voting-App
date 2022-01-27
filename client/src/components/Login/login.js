@@ -15,6 +15,7 @@ import {
   FormInput,
   Form,
   Text,
+  ErrorText,
 } from './LoginElements'
 import { SiHiveBlockchain } from 'react-icons/si'
 
@@ -29,6 +30,7 @@ const Login = () => {
   }
 
   const onSubmit = (values) => {
+    console.log('clicked')
     axios
       .post(BASE_API_URL, values, {
         'Content-Type': 'application/json',
@@ -66,16 +68,18 @@ const Login = () => {
           <FormContent>
             <Form onSubmit={formik.handleSubmit}>
               <FormH1>Sign in to your account</FormH1>
-              <FormLabel htmlFor="for">Email</FormLabel>
+              <FormLabel htmlFor="email">Email</FormLabel>
               <FormInput
+                id="email"
                 type="email"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
                 required
               />
-              <FormLabel htmlFor="for">Password</FormLabel>
+              <FormLabel htmlFor="password">Password</FormLabel>
               <FormInput
+                id="password"
                 type="password"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -86,8 +90,8 @@ const Login = () => {
                 <div className="error">{formik.errors.password}</div>
               ) : null}
               <FormButton type="submit">Log In</FormButton>
-              <Text>Forgot Password</Text>
-              {message ? <div className="error">{message}</div> : null}
+              <Text to="/register">Register Now ❯</Text>
+              {message ? <ErrorText>{message}</ErrorText> : null}
             </Form>
           </FormContent>
         </FormWrap>
