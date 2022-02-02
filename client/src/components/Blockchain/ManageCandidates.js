@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Electionabi from '../../contracts/Election.json'
-import axios from 'axios'
 import { MDBDataTable } from 'mdbreact'
 import Navbar from '../Layouts/Navbar'
 import '../../screens/Voter/voterDashboard.css'
@@ -11,6 +10,7 @@ import { FaUserEdit } from 'react-icons/fa'
 import { RiQuestionnaireFill } from 'react-icons/ri'
 import { AiFillFileAdd } from 'react-icons/ai'
 import { MdManageAccounts, MdReportProblem } from 'react-icons/md'
+import NotFound from '../Layouts/NotFound'
 const Web3 = require('web3')
 
 const ManageCandidates = () => {
@@ -40,6 +40,8 @@ const ManageCandidates = () => {
   //load the data from blockchain
   const LoadBlockchaindata = async () => {
     const web3 = window.web3
+    //you need to make a loader and set it to true here
+
 
     const accounts = await web3.eth.getAccounts()
     const account = accounts[0]
@@ -194,7 +196,7 @@ const ManageCandidates = () => {
   return (
     <>
       <div>
-        <Navbar account={currentaccount} />
+        <Navbar />
         <div className="row dashboard-container">
           {/* Sidebar */}
           <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
@@ -253,21 +255,25 @@ const ManageCandidates = () => {
 
           {/* DashBoard */}
           <div className="dashboard col-12 col-lg-9 col-md-7 col-sm-6 p-0">
-            {editCandidate ? (
-              <>
-                <EditCandidate
-                  candidate={editCandidateObj}
-                  editFunction={editCandidates}
-                />
-              </>
+            {currentaccount ? (
+              editCandidate ? (
+                <>
+                  <EditCandidate
+                    candidate={editCandidateObj}
+                    editFunction={editCandidates}
+                  />
+                </>
+              ) : (
+                <>
+                  <div className="row m-4 py-2 overflow-hidden">
+                    <h1>CANDIDATES LIST</h1>
+                    <hr />
+                    <MDBDataTable striped data={candidateData()} />
+                  </div>
+                </>
+              )
             ) : (
-              <>
-                <div className="row m-4 py-2 overflow-hidden">
-                  <h1>CANDIDATES LIST</h1>
-                  <hr />
-                  <MDBDataTable striped data={candidateData()} />
-                </div>
-              </>
+              <NotFound />
             )}
           </div>
         </div>
