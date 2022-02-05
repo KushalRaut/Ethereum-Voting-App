@@ -8,6 +8,7 @@ import CandidateDashboard from './screens/Candidate/CandidateDashboard'
 import AdminDashboard from './screens/Admin/AdminDashboard'
 import ChatBot from './screens/chatbot/ChatBot'
 import Vote from './components/Vote/Vote'
+import LiveData from './components/Blockchain/LiveData'
 import Verification from './components/Face-Recognition/verification'
 import CandidateManifesto from './components/Candidate/CandidateManifesto'
 import AddCandidate from './components/Blockchain/AddCandidate'
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/candidate/manifesto" element={<CandidateManifesto />} />
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/voter/vote" element={<Vote />} />
+        <Route path="/voter/results" element={<LiveData />} />
         <Route path="/facial-verification" element={<Verification />} />
         <Route path="/admin/addCandidate" element={<AddCandidate />} />
         <Route path="/admin/manageCandidates" element={<ManageCandidates />} />
