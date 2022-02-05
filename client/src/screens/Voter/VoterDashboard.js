@@ -83,64 +83,64 @@ const VoterDashboard = () => {
           <div className="row m-3">
             <h1 className="dashboard-title mb-4">VOTER DASHBOARD</h1>
             <div className="vote-div">
-              <div class="card card-vote w-100 h-100">
-                <div class="card-body">
-                  <div class="text-center">
+              <div className="card card-vote w-100 h-100">
+                <div className="card-body">
+                  <div className="text-center">
                     <h1 className="text-white py-3">VOTE NOW</h1>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/vote">
-                  <span class="float-left">Goto vote UI ❯</span>
+                <Link className="card-footer text-white " to="/voter/vote">
+                  <span className="float-left">Goto vote UI ❯</span>
                 </Link>
               </div>
             </div>
           </div>
           <div className="row m-3 row-featues">
             <div className="col-12 col-lg-3 col-md-12 col-sm-12 sub-col-first my-3">
-              <div class="card card-result w-100 h-100">
-                <div class="card-body">
-                  <div class="text-center">
+              <div className="card card-result w-100 h-100">
+                <div className="card-body">
+                  <div className="text-center">
                     <h2 className="text-white py-3">RESULTS</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/results">
-                  <span class="float-left">View Realtime Results ❯</span>
+                <Link className="card-footer text-white " to="/voter/results">
+                  <span className="float-left">View Realtime Results ❯</span>
                 </Link>
               </div>
             </div>
             <div className="col-12 col-lg-3 col-md-12 col-sm-12 my-3">
-              <div class="card card-chat w-100 h-100">
-                <div class="card-body">
-                  <div class="text-center">
+              <div className="card card-chat w-100 h-100">
+                <div className="card-body">
+                  <div className="text-center">
                     <h2 className="text-white py-3">CHAT</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/chat">
-                  <span class="float-left">Message with candidates ❯</span>
+                <Link className="card-footer text-white " to="/voter/chat">
+                  <span className="float-left">Message with candidates ❯</span>
                 </Link>
               </div>
             </div>
             <div className="col-12 col-lg-3 col-md-12 col-sm-12 my-3">
-              <div class="card card-info w-100 h-100">
-                <div class="card-body">
-                  <div class="text-center">
+              <div className="card card-info w-100 h-100">
+                <div className="card-body">
+                  <div className="text-center">
                     <h2 className="text-white py-3">VIEW INFO</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/profile">
-                  <span class="float-left">View & Edit Info ❯</span>
+                <Link className="card-footer text-white " to="/voter/profile">
+                  <span className="float-left">View & Edit Info ❯</span>
                 </Link>
               </div>
             </div>
             <div className="col-12 col-lg-3 col-md-12 col-sm-12 my-3 sub-col-last">
-              <div class="card card-live w-100 h-100">
-                <div class="card-body">
-                  <div class="text-center">
+              <div className="card card-live w-100 h-100">
+                <div className="card-body">
+                  <div className="text-center">
                     <h2 className="text-white py-3">LIVE FEED</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/voter/live">
-                  <span class="float-left">View live speech ❯</span>
+                <Link className="card-footer text-white " to="/voter/live">
+                  <span className="float-left">View live speech ❯</span>
                 </Link>
               </div>
             </div>

@@ -1,20 +1,7 @@
 .vote-body {
-  width: 70%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-}
-.candidate-card{
-  flex: 1;
-}
-.forms {
-  width: 70%;
-  margin: auto;
-  padding-top: 25px;
-}
-
-.vote-container {
-  background-color: #f7f7f7;
-  min-height: 100vh;
 }

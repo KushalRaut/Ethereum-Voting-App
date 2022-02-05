@@ -1,18 +1,28 @@
 .main_card {
-  min-width: 240px;
-  min-height: 38vh;
-  border: 1px solid gray;
+  width: 260px;
+  border: 1px solid rgb(189, 184, 184);
   background-color: white;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  padding: 0.8rem;
 }
-.img-container {
-  width: 100%;
-  height: 67%;
+
+.candidate-img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
 }
 .body-container {
-  height: 43%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-container p {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 #vote {
   width: 100%;
@@ -20,6 +30,19 @@
   margin: auto;
   border-radius: 15px;
 }
-#btn-container {
-  margin: auto;
+
+.vote-btn {
+  background-color: #01bf71;
+  width: 200px;
+  height: 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid rgb(201, 193, 193);
+  border-radius: 4px;
+  color: white;
+}
+
+.vote-btn:hover {
+  transform: scale(1.1);
+  transition: 0.6s ease-in-out;
 }
