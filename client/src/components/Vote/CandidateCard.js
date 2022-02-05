@@ -1,44 +1,30 @@
-import React from "react";
-import "./candidateCard.css";
+import React from 'react'
+import './candidateCard.css'
 
-const CandidateCard = ({
-  candidateName,
-  candidateId,
-  candidateVC,
-  candidateImg,
-  voteCandidate,
-}) => {
+const CandidateCard = ({ candidate, voteCandidate }) => {
   const voteHandler = (e) => {
-    e.preventDefault();
-    voteCandidate(Number(e.target.value));
-  };
+    e.preventDefault()
+    voteCandidate(Number(e.target.value))
+  }
 
   return (
     <div className="main_card shadow-lg m-4">
-      <div className="img-container">
-        <img src={candidateImg} className="w-75 h-100"></img>
-      </div>
-      <hr className="mx-auto"></hr>
+      <img src={`${candidate.img}`} className="candidate-img w-75 h-100"></img>
+
+      <hr />
       <div className="body-container">
-        <div className="m-2">
-          <p className="">Name: {candidateName}</p>
-        </div>
-        <div className="m-2">
-          <p className="">Vote Count: {candidateVC}</p>
-        </div>
-        <div id="btn-container" className="m-2">
-          <button
-            id="vote"
-            value={candidateId}
-            onClick={voteHandler}
-            className="btn btn-primary"
-          >
-            VOTE
-          </button>
-        </div>
+        <p>Name: {candidate.name} </p>
+        <p>Party: {candidate.party} </p>
+        <p>DOB: {candidate.dob} </p>
+
+        <p>Vote Count: {candidate.votecount} </p>
+
+        <button value={candidate.id} onClick={voteHandler} className="vote-btn">
+          VOTE
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CandidateCard;
+export default CandidateCard
