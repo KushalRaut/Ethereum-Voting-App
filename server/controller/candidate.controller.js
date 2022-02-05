@@ -1,4 +1,4 @@
-import Candidate from "../model/candidate.model.js";
+// import Candidate from "../model/candidate.model.js";
 
 export const postManifesto = async (req, res) => {
   try {
