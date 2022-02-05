@@ -1,47 +1,86 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Navbar from '../Layouts/Navbar'
-import { Link } from 'react-router-dom'
-import { RiDashboardLine } from 'react-icons/ri'
-import { FaUserEdit } from 'react-icons/fa'
-import { ImStatsBars } from 'react-icons/im'
-import { IoMdChatboxes } from 'react-icons/io'
-import { RiLiveFill } from 'react-icons/ri'
-import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
-import '../../styles/ManifestoForm.css'
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import Navbar from "../Layouts/Navbar";
+import { Link } from "react-router-dom";
+import { RiDashboardLine } from "react-icons/ri";
+import { FaUserEdit } from "react-icons/fa";
+import { ImStatsBars } from "react-icons/im";
+import { IoMdChatboxes } from "react-icons/io";
+import { RiLiveFill } from "react-icons/ri";
+import { MdSupportAgent, MdDeveloperMode } from "react-icons/md";
+import "../../styles/ManifestoForm.css";
+import axios from "axios";
+
+toast.configure(ToastContainer);
 
 const CandidateManifesto = () => {
-  const [image, setImage] = useState()
-  const [preview, setPreview] = useState()
-  const [partyName, setPartyName] = useState('')
-  const [partySymbol, setPartySymbol] = useState('')
-  const [manifestoWords, setManifestoWords] = useState('')
-  const [manifestoDesc, setManifestoDesc] = useState('')
-  const fileInputRef = useRef()
+  const BASE_API_URL =
+    "http://localhost:4000/api/candidate/manifesto/61eeaefcbd6e8e008157ae53";
+
+  const [image, setImage] = useState();
+  const [preview, setPreview] = useState();
+  const [message, setMessage] = useState();
+  const [partyName, setPartyName] = useState();
+  const [partySymbol, setPartySymbol] = useState();
+  const [manifestoWords, setManifestoWords] = useState();
+  const [manifestoDescription, setManifestoDescription] = useState();
+  const [responseData, setResponseData] = useState();
+  const fileInputRef = useRef();
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (image) {
-      const reader = new FileReader()
+      const reader = new FileReader();
       reader.onloadend = () => {
-        setPreview(reader.result)
-      }
-      reader.readAsDataURL(image)
-      setPreview(reader.result)
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(image);
+      setPreview(reader.result);
     } else {
-      setPreview(null)
+      setPreview(null);
     }
-  }, [image])
+  }, [image]);
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    const data = new FormData()
-    data.append('party-image', image)
-    data.append('party-name', partyName)
-    data.append('party-symbol', partySymbol)
-    data.append('manifesto-words', manifestoWords)
-    data.append('manifesto-desc', manifestoDesc)
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append("partyImage", image);
+    data.append("partyName", partyName);
+    data.append("partySymbol", partySymbol);
+    data.append("manifestoWords", manifestoWords);
+    data.append("manifestoDescription", manifestoDescription);
 
-    console.log(data)
-  }
+    const response = await axios.post(BASE_API_URL, data, {
+      "Content-Type": "multipart/form-data",
+    });
+    if (response.status === 200) {
+      setResponseData(response.data);
+      console.log(response.message);
+      console.log(response.data);
+      toast.success("Succesful", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      navigate("/candidate/dashboard");
+    } else {
+      toast.success(response.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
 
   return (
     <div>
@@ -115,7 +154,7 @@ const CandidateManifesto = () => {
             <form onSubmit={submitHandler}>
               <div className="form-group px-5 py-4">
                 <h2>New Manifesto</h2>
-                <label htmlFor="party-name" className="form-label">
+                <label htmlFor="partyImage" className="form-label">
                   Party Image
                 </label>
                 {preview ? (
@@ -124,8 +163,8 @@ const CandidateManifesto = () => {
                   <button
                     className="img-btn"
                     onClick={(e) => {
-                      e.preventDefault()
-                      fileInputRef.current.click()
+                      e.preventDefault();
+                      fileInputRef.current.click();
                     }}
                   >
                     Browse
@@ -133,28 +172,29 @@ const CandidateManifesto = () => {
                 )}
                 <input
                   type="file"
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                   ref={fileInputRef}
                   accept="image/*"
                   onChange={(e) => {
-                    const file = e.target.files[0]
-                    if (file && file.type.substr(0, 5) === 'image') {
-                      setImage(file)
+                    const file = e.target.files[0];
+                    if (file && file.type.substr(0, 5) === "image") {
+                      setImage(file);
                     } else {
-                      setImage(null)
+                      setImage(null);
                     }
                   }}
                 />
 
-                <label htmlFor="party-name" className="form-label">
+                <label htmlFor="partyName" className="form-label">
                   Party Name
                 </label>
                 <input
+                  id="partyName"
                   type="text"
                   className="d-block w-100 party"
                   value={partyName}
                   onChange={(e) => {
-                    setPartyName(e.target.value)
+                    setPartyName(e.target.value);
                   }}
                 />
 
@@ -166,31 +206,33 @@ const CandidateManifesto = () => {
                   className="d-block w-100 party"
                   value={partySymbol}
                   onChange={(e) => {
-                    setPartySymbol(e.target.value)
+                    setPartySymbol(e.target.value);
                   }}
                 />
 
-                <label htmlFor="form-label" className="form-label">
+                <label htmlFor="manifestoWords" className="form-label">
                   Manifesto Focus Areas
                 </label>
                 <input
+                  id="manifestoWords"
                   type="text"
                   value={manifestoWords}
                   className="d-block w-100 manifesto-words"
                   onChange={(e) => {
-                    setManifestoWords(e.target.value)
+                    setManifestoWords(e.target.value);
                   }}
                 />
 
-                <label htmlFor="form-label" className="form-label">
+                <label htmlFor="manifestoDescription" className="form-label">
                   Manifesto Detail Description
                 </label>
                 <textarea
+                  id="manifestoDescription"
                   type="text"
                   className="d-block w-100 manifesto-desc"
-                  value={manifestoDesc}
+                  value={manifestoDescription}
                   onChange={(e) => {
-                    setManifestoDesc(e.target.value)
+                    setManifestoDescription(e.target.value);
                   }}
                 />
 
@@ -203,7 +245,7 @@ const CandidateManifesto = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CandidateManifesto
+export default CandidateManifesto;
