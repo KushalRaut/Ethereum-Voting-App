@@ -1,26 +1,23 @@
-import React, { useState } from 'react'
-import Pimage from '../Voter/ppphoto.jpg'
-import '../Voter/voterDashboard.css'
-import { Link } from 'react-router-dom'
-import Navbar from '../../components/Layouts/Navbar'
-import ChatBot from '../chatbot/ChatBot'
-import { SiHiveBlockchain } from 'react-icons/si'
-import { RiDashboardLine } from 'react-icons/ri'
-import { FaUserEdit, FaVoteYea, FaCaretDown } from 'react-icons/fa'
-import { ImStatsBars } from 'react-icons/im'
-import { IoMdChatboxes } from 'react-icons/io'
-import { RiLiveFill } from 'react-icons/ri'
-import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
+import React, { useState } from "react";
+import Pimage from "../Voter/ppphoto.jpg";
+import "../Voter/voterDashboard.css";
+import { Link } from "react-router-dom";
+import Navbar from "../../components/Layouts/Navbar";
+import { SiHiveBlockchain } from "react-icons/si";
+import { RiDashboardLine } from "react-icons/ri";
+import { FaUserEdit, FaVoteYea, FaCaretDown } from "react-icons/fa";
+import { ImStatsBars } from "react-icons/im";
+import { IoMdChatboxes } from "react-icons/io";
+import { RiLiveFill } from "react-icons/ri";
+import { MdSupportAgent, MdDeveloperMode } from "react-icons/md";
 
 const CandidateDashboard = () => {
-
   return (
     <>
       <Navbar />
 
       {/* Body */}
       <div className="row dashboard-container">
-
         {/* Sidebar */}
         <div className="sidebar col-12 col-lg-3 col-md-5 col-sm-6">
           <div className="sidebar-items">
@@ -150,9 +147,8 @@ const CandidateDashboard = () => {
           </div>
         </div>
       </div>
-      <ChatBot />
     </>
-  )
-}
+  );
+};
 
-export default CandidateDashboard
+export default CandidateDashboard;

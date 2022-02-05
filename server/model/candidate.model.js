@@ -1,8 +1,21 @@
-import mongoose, { Schema, Types } from "mongoose";
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const candidateSchema = Schema(
+const candidateSchema = mongoose.Schema(
   {
-    manifesto: {
+    partyImage: {
+      type: String,
+    },
+    partyName: {
+      type: String,
+    },
+    partySymbol: {
+      type: String,
+    },
+    manifestoWords: {
+      type: String,
+    },
+    manifestoDescription: {
       type: String,
     },
     user: {
@@ -14,6 +27,6 @@ const candidateSchema = Schema(
   { timestamps: true }
 );
 
-const Candidate = mongoose.Schema("candidates", candidateSchema);
+const Candidate = mongoose.model("candidates", candidateSchema);
 
 export default Candidate;
