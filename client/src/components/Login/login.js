@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useFormik } from 'formik'
-import axios from 'axios'
-import * as Yup from 'yup'
-import './login.css'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import axios from "axios";
+import * as Yup from "yup";
+import "./login.css";
 import {
   Container,
   Wrapper,
@@ -19,49 +19,50 @@ import {
   ImgWrapper,
   Img,
   SiteLogo,
-} from './LoginElements'
-import { SiHiveBlockchain } from 'react-icons/si'
-import AuthImage from '../Homepage/images/otp.svg'
+} from "./LoginElements";
+import { SiHiveBlockchain } from "react-icons/si";
+import AuthImage from "../Homepage/images/otp.svg";
 
 const Login = () => {
-  const BASE_API_URL = 'http://localhost:4000/api/user/login'
-  const navigate = useNavigate()
-  const [message, setMessage] = useState()
+  const BASE_API_URL = "http://localhost:4000/api/user/login";
+  const navigate = useNavigate();
+  const [message, setMessage] = useState();
 
   const initialValues = {
-    email: '',
-    password: '',
-  }
+    email: "",
+    password: "",
+  };
 
   const onSubmit = (values) => {
-    console.log('clicked')
+    console.log("clicked");
     axios
       .post(BASE_API_URL, values, {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       })
       .then((response) => {
-        console.log(response)
+        console.log(response);
         if (response.data.status) {
-          sessionStorage.setItem('phoneNo', response.data.result.to)
-          navigate('/verify')
+          sessionStorage.setItem("phoneNo", response.data.result.to);
+          sessionStorage.setItem("name", response.data.data.name);
+          navigate("/verify");
         } else {
-          setMessage(response.data.message)
+          setMessage(response.data.message);
         }
-      })
-  }
+      });
+  };
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Invalid email format')
-      .required('This field is required'),
-    password: Yup.string().required('This field is required'),
-  })
+      .email("Invalid email format")
+      .required("This field is required"),
+    password: Yup.string().required("This field is required"),
+  });
 
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
-  })
+  });
 
   return (
     <>
@@ -107,7 +108,7 @@ const Login = () => {
         </Wrapper>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
