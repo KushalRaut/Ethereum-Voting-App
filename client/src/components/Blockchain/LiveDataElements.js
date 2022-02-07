@@ -38,6 +38,11 @@ export const NavBarText = styled.div`
     font-weight: 500;
   }
 `
+
+export const AccountInfoBtn = styled.button`
+  background-color: transparent;
+  border: none;
+`
 export const AccountInfo = styled.div`
   height: 80px;
   display: flex;
@@ -96,7 +101,7 @@ export const HeaderButtons = styled.button`
   font-size: 1.2rem;
   text-align: center;
   margin-right: 1rem;
-  height: 75%;
+  height: 43px;
   border: 1px solid #bdbdbd;
   border-radius: 5px;
   color: white;
@@ -149,6 +154,7 @@ export const SecondRow = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 0 0.5rem;
 `
 export const LastFetech = styled.div`
   font-size: 1.1rem;
@@ -191,7 +197,6 @@ export const CardImg = styled.img`
   width: 130px;
   height: 120px;
   object-fit: contain;
-  border: 1px solid black;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
 `
@@ -199,9 +204,11 @@ export const CardImg = styled.img`
 export const CardText = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 1rem;
+  font-weight: 500;
 `
 
-export const LeadingSectionContainer= styled.div`
+export const LeadingSectionContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 1rem;

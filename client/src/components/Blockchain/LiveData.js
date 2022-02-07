@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Electionabi from '../../contracts/Election.json'
+import { Link } from 'react-router-dom'
 import {
   AccountInfo,
   LiveContainer,
@@ -7,6 +8,7 @@ import {
   NavbarContent,
   NavBarLogo,
   NavBarText,
+  AccountInfoBtn,
   Wrapper,
   Header,
   PageTitle,
@@ -107,6 +109,34 @@ const LiveData = () => {
     const lastPart = currentaccount.substring(currentaccount.length - 5)
     presentAccount = firstPart + '....' + lastPart
   }
+
+  //sorting for top 3 candidates
+
+  let list = [...candidates]
+  const length = list.length
+  for (let i = 0; i < length; i++) {
+    for (let j = i; j < length; j++) {
+      if (Number(list[i].votecount) < Number(list[j].votecount)) {
+        const temp = list[i]
+        list[i] = list[j]
+        list[j] = temp
+      }
+    }
+  }
+
+  //get the latest date
+  const today = new Date()
+  const date =
+    today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate()
+  const time =
+    today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
+  const dateTime = date + ' ' + time
+
+  //Fetch Latest Data
+  const fetchDataHandler = () => {
+    window.location.reload()
+  }
+
   return (
     <>
       <NavBarContainer>
@@ -117,7 +147,9 @@ const LiveData = () => {
               E-Vote Nepal
             </NavBarText>
           </NavBarLogo>
-          <AccountInfo>Current Account: {presentAccount}</AccountInfo>
+          <AccountInfoBtn onClick={fetchDataHandler}>
+            <AccountInfo>Current Account: {presentAccount}</AccountInfo>
+          </AccountInfoBtn>
         </NavbarContent>
       </NavBarContainer>
       <LiveContainer>
@@ -125,8 +157,12 @@ const LiveData = () => {
           <Header>
             <PageTitle>View Realtime Results</PageTitle>
             <ButtonsContainer>
-              <HeaderButtons>Fetch Latest Data</HeaderButtons>
-              <HeaderButtons>Go Back</HeaderButtons>
+              <HeaderButtons onClick={fetchDataHandler}>
+                Fetch Latest Data
+              </HeaderButtons>
+              <Link to="/voter/dashboard">
+                <HeaderButtons>Go Back</HeaderButtons>
+              </Link>
             </ButtonsContainer>
           </Header>
           <FirstRow>
@@ -142,37 +178,37 @@ const LiveData = () => {
             </LongColumn>
           </FirstRow>
           <SecondRow>
-            <LastFetech>Last Update: 2022-02-03 12:58 AM</LastFetech>
+            <LastFetech>Last Update: {dateTime}</LastFetech>
           </SecondRow>
           <LastRow>
             <LongColumn>
               <SectionTitle>Top 3 Candidates</SectionTitle>
               <CardsContainer>
                 <Card>
-                  <CardImg src="" alt="no-img" />
+                  <CardImg src={list.length > 0 && list[0].img} alt="no-img" />
                   <CardText>
-                    <p>Name: Kushal Raut</p>
-                    <p>Name: Kushal Raut</p>
-                    <p>Name: Kushal Raut</p>
+                    <p>Name: {list.length > 0 && list[0].name}</p>
+                    <p>Party: {list.length > 0 && list[0].party}</p>
+                    <p>Vote Count: {list.length > 0 && list[0].votecount}</p>
+                    <p>DOB: {list.length > 0 && list[0].dob}</p>
                   </CardText>
                 </Card>
                 <Card>
-                  <CardImg
-                    src="https://res.cloudinary.com/dynbrzezs/image/upload/v1642667247/uploads/BRBM_iyeetq.jpg"
-                    alt="no-img"
-                  />
+                  <CardImg src={list.length > 0 && list[1].img} alt="no-img" />
                   <CardText>
-                    <p>Name: Kushal Raut</p>
-                    <p>Name: Kushal Raut</p>
-                    <p>Name: Kushal Raut</p>
+                    <p>Name: {list.length > 0 && list[1].name}</p>
+                    <p>Party: {list.length > 0 && list[1].party}</p>
+                    <p>Vote Count: {list.length > 0 && list[1].votecount}</p>
+                    <p>DOB: {list.length > 0 && list[1].dob}</p>
                   </CardText>
                 </Card>
                 <Card>
-                  <CardImg src="" alt="no-img" />
+                  <CardImg src={list.length > 0 && list[2].img} alt="no-img" />
                   <CardText>
-                    <p>Name: Kushal Raut</p>
-                    <p>Name: Kushal Raut</p>
-                    <p>Name: Kushal Raut</p>
+                    <p>Name: {list.length > 0 && list[2].name}</p>
+                    <p>Party: {list.length > 0 && list[2].party}</p>
+                    <p>Vote Count: {list.length > 0 && list[2].votecount}</p>
+                    <p>DOB: {list.length > 0 && list[2].dob}</p>
                   </CardText>
                 </Card>
               </CardsContainer>
