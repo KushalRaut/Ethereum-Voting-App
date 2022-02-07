@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as faceapi from "face-api.js";
 import "./Verification.css";
+import axios from "axios";
 
 const Verification = () => {
   const videoHeight = 480;
@@ -18,6 +19,7 @@ const Verification = () => {
         faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
         faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
         faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL),
+        faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
       ]).then(startVideo);
     };
     loadModels();
@@ -33,7 +35,7 @@ const Verification = () => {
     );
   };
 
-  const handleVideoOnPlay = () => {
+  const handleVideoOnPlay = async () => {
     setInterval(async () => {
       if (initializing) {
         setInitializing(false);
@@ -49,9 +51,14 @@ const Verification = () => {
 
       faceapi.matchDimensions(canvasRef.current, displaySize);
 
+      let labeledFaceDescriptors;
+      (async () => {
+        labeledFaceDescriptors = await loadLabeledImages();
+      })();
       const detection = await faceapi
         .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
+        .withFaceDescriptors()
         .withFaceExpressions();
       const resizedDetections = faceapi.resizeResults(detection, displaySize);
       canvasRef.current
@@ -59,10 +66,48 @@ const Verification = () => {
         .clearRect(0, 0, videoWidth, videoHeight);
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections);
-      faceapi.draw.drawFaceExpressions(canvasRef.current, resizedDetections);
+
+      if (labeledFaceDescriptors) {
+        const faceMatcher = new faceapi.FaceMatcher(
+          labeledFaceDescriptors,
+          0.6
+        );
+
+        const results = resizedDetections.map((d) =>
+          faceMatcher.findBestMatch(d.descriptor)
+        );
+        console.log(results);
+        results.forEach((result, i) => {
+          const box = resizedDetections[i].detection.box;
+          const drawBox = new faceapi.draw.DrawBox(box, {
+            label: result.toString(),
+          });
+          drawBox.draw(canvasRef.current, resizedDetections);
+        });
+      }
     }, 100);
   };
 
+  function loadLabeledImages() {
+    const label = sessionStorage.getItem("name");
+    let labels = ["Nirajan"];
+    return Promise.all(
+      labels.map(async (label) => {
+        const descriptions = [];
+
+        const img = await faceapi.fetchImage(
+          `http://localhost:3000/img/Nirajan/1.jpg`
+        );
+        const detections = await faceapi
+          .detectSingleFace(img)
+          .withFaceLandmarks()
+          .withFaceDescriptor();
+        descriptions.push(detections.descriptor);
+
+        return new faceapi.LabeledFaceDescriptors(label, descriptions);
+      })
+    );
+  }
   return (
     <div className="detection">
       <span>{initializing ? `initializing` : `Ready`}</span>

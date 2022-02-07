@@ -21,7 +21,7 @@ function OtpVerification() {
       })
       .then((response) => {
         if (response.data.status) {
-          navigate("/voter/dashboard");
+          navigate("/facial-verification");
         } else {
           setMessage(response.data.message);
         }
