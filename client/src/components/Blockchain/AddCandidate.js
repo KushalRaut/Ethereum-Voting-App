@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import '../../styles/AddCandidate.css'
 import Electionabi from '../../contracts/Election.json'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 const Web3 = require('web3')
 
@@ -74,13 +75,15 @@ const AddCandidate = () => {
     }
   }
 
-  const addCandidates = async (name, party, citizenNo,dob,img,email) => {
+  let navigate = useNavigate()
+  const addCandidates = async (name, party, citizenNo, dob, img, email) => {
     await Electionsm.methods
-      .addCandidates(name, party,citizenNo ,dob, img, email)
+      .addCandidates(name, party, citizenNo, dob, img, email)
       .send({ from: currentaccount })
       .on('transactionhash', () => {
         console.log('successfully added', name)
       })
+    navigate('/admin/dashboard')
   }
 
   useEffect(async () => {

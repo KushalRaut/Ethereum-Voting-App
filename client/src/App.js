@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './components/Homepage/HomePage'
 import Login from './components/Login/login'
@@ -15,11 +16,13 @@ import AddCandidate from './components/Blockchain/AddCandidate'
 import ManageCandidates from './components/Blockchain/ManageCandidates'
 
 const App = () => {
+  const [user, setUser] = useState('')
+
   return (
     <>
       <Routes>
         <Route path="/" exact element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<RegistrationForm />} />
         <Route path="/verify" element={<OtpVerification />} />
         <Route path="/voter/dashboard" element={<VoterDashboard />} />
@@ -28,7 +31,7 @@ const App = () => {
         <Route path="/candidate/manifesto" element={<CandidateManifesto />} />
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/voter/vote" element={<Vote />} />
-        <Route path="/voter/results" element={<LiveData />} />
+        <Route path="/livedata" element={<LiveData />} />
         <Route path="/facial-verification" element={<Verification />} />
         <Route path="/admin/addCandidate" element={<AddCandidate />} />
         <Route path="/admin/manageCandidates" element={<ManageCandidates />} />
