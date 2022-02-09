@@ -8,7 +8,7 @@ import { ConditionallyRender } from "react-util-kit";
 import { ReactComponent as ButtonIcon } from "./icons/robot.svg";
 
 const ChatBot = () => {
-  const [showChatbot, toggleChatbot] = useState(true);
+  const [showChatbot, toggleChatbot] = useState(false);
   return (
     <>
       <div

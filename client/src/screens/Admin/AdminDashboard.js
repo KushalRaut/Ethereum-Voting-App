@@ -80,7 +80,7 @@ const AdminDashboard = () => {
                     <h1 className="text-white py-3">SHOW LIVE RESULTS</h1>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/admin/liveResults">
+                <Link class="card-footer text-white " to="/livedata">
                   <span class="float-left">View Realtime Results ❯</span>
                 </Link>
               </div>

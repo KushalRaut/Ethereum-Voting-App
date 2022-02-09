@@ -68,7 +68,6 @@ const Verification = () => {
       <span>{initializing ? `initializing` : `Ready`}</span>
       <div className="display-flex justify-content-center">
         <video
-          className="videobcg"
           ref={videoRef}
           autoPlay
           muted

@@ -1,50 +1,43 @@
-import "./PieChart.css";
-import DonutChart from "react-donut-chart";
+import { useState } from 'react'
+import './PieChart.css'
+import DonutChart from 'react-donut-chart'
 
-export default function PieChart() {
+export default function PieChart({ candidates }) {
+
+  const loadData = () => {
+    let temp = []
+    candidates.map((candidate) => {
+      temp.push({
+        label: candidate.name,
+        value: Number(candidate.votecount),
+      })
+    })
+    return temp
+  }
+
   return (
-    <div className="pie-chart">
-      <div className="chart_container w-50">
-        <DonutChart
-          className="dchart m-4"
-          width={500}
-          height={500}
-          innerRadius={0.5}
-          selectedOffset={0}
-          outerRadius={0.7}
-          colors={["#fdcc0a", "#eb5756", "#6acf95", "#0d57b2", "#c6c6c6"]}
-          data={[
-            {
-              label: "Gagan Thapa",
-              value: 10,
-            },
-            {
-              label: "Sher Bdr. Deuba",
-              value: 15,
-            },
-            {
-              label: "KP Oli",
-              value: 13,
-            },
-            {
-              label: "Baburam Bhattarai",
-              value: 7,
-            },
-            {
-              label: "Puspa K. Dahal",
-              value: 9,
-            },
-            {
-              label: "Bidya Bhandari",
-              value: 11,
-            },
-            {
-              label: "Kamal Thapa",
-              value: 8,
-            },
-          ]}
-        />
-      </div>
-    </div>
-  );
+    <DonutChart
+      width={650}
+      height={400}
+      innerRadius={0.37}
+      selectedOffset={0}
+      outerRadius={0.6}
+      strokeColor={'#DDDDDD'}
+      colors={[
+        '#00bcd4',
+        '#FFEC21',
+        '#378AFF',
+        '#FFA32F',
+        '#93F03B',
+        '#9552EA',
+        '#F54F52',
+        '#EA5F89',
+        '#64C2A6',
+        '#3C9D4E',
+        '#003F5C',
+        '#AADEA7',
+      ]}
+      data={loadData()}
+    />
+  )
 }
