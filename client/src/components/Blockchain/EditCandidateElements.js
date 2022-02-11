@@ -5,7 +5,7 @@ export const Container = styled.div`
   min-height: 100vh;
   max-height: auto;
   font-family: 'Encode Sans Expanded', sans-serif;
-  background: #e7e9eb;
+  background: #fafafa;
 `
 export const FormWrap = styled.div`
   height: 100%;
@@ -91,6 +91,7 @@ export const PreviewImage = styled.img`
   object-fit: contain;
   border-radius: 50%;
   border: 2px solid rgb(189, 189, 189);
+  background-color: #fff;
 `
 export const UploadButton = styled.div`
   width: 120px;
@@ -165,7 +166,9 @@ export const FormButton = styled.button`
   font-size: 20px;
   cursor: pointer;
   display: block;
-  margin: 8px auto;
+  margin: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
   width: 200px;
 
   &:hover {

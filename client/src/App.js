@@ -1,17 +1,19 @@
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./components/Homepage/HomePage";
-import Login from "./components/Login/login";
-import RegistrationForm from "./components/RegistrationForm/registrationForm";
-import OtpVerification from "./components/OtpVerification/OtpVerification";
-import VoterDashboard from "./screens/Voter/VoterDashboard";
-import CandidateDashboard from "./screens/Candidate/CandidateDashboard";
-import AdminDashboard from "./screens/Admin/AdminDashboard";
-import ChatBot from "./screens/chatbot/ChatBot";
-import Vote from "./components/Vote/Vote";
-import Verification from "./components/Face-Recognition/Verification";
-import CandidateManifesto from "./components/Candidate/CandidateManifesto";
-import AddCandidate from "./components/Blockchain/AddCandidate";
-import ManageCandidates from "./components/Blockchain/ManageCandidates";
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './components/Homepage/HomePage'
+import Login from './components/Login/login'
+import RegistrationForm from './components/RegistrationForm/registrationForm'
+import OtpVerification from './components/OtpVerification/OtpVerification'
+import VoterDashboard from './screens/Voter/VoterDashboard'
+import CandidateDashboard from './screens/Candidate/CandidateDashboard'
+import AdminDashboard from './screens/Admin/AdminDashboard'
+import ChatBot from './screens/chatbot/ChatBot'
+import Vote from './components/Vote/Vote'
+import Verification from './components/Face-Recognition/verification'
+import CandidateManifesto from './components/Candidate/CandidateManifesto'
+import AddCandidate from './components/Blockchain/AddCandidate'
+import ManageCandidates from './components/Blockchain/ManageCandidates'
+import LiveData from './components/Blockchain/LiveData'
 
 const App = () => {
   const [user, setUser] = useState('')
@@ -35,7 +37,7 @@ const App = () => {
         <Route path="/admin/manageCandidates" element={<ManageCandidates />} />
       </Routes>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
