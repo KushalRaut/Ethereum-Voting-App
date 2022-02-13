@@ -9,11 +9,11 @@ import CandidateDashboard from './screens/Candidate/CandidateDashboard'
 import AdminDashboard from './screens/Admin/AdminDashboard'
 import ChatBot from './screens/chatbot/ChatBot'
 import Vote from './components/Vote/Vote'
-import LiveData from './components/Blockchain/LiveData'
 import Verification from './components/Face-Recognition/verification'
 import CandidateManifesto from './components/Candidate/CandidateManifesto'
 import AddCandidate from './components/Blockchain/AddCandidate'
 import ManageCandidates from './components/Blockchain/ManageCandidates'
+import LiveData from './components/Blockchain/LiveData'
 
 const App = () => {
   const [user, setUser] = useState('')
