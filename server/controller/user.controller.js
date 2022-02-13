@@ -45,14 +45,37 @@ export const userLogin = async (req, res) => {
             });
           }
         });
-      } else if (data?.user_type === "candidate") {
-      } else if (data?.user_type === "admin") {
-      } else {
-        return res.status(200).json({
-          status: false,
-          message: "Invalid email or password",
+      }
+    } else if (data?.user_type === "candidate") {
+      if (data) {
+        bcrypt.compare(password, data.password, function (err, result) {
+          // result == true
+          if (result === true) {
+            client.verify
+              .services(serviceID)
+              .verifications.create({
+                to: `+977${data.phone_No}`,
+                channel: "sms",
+              })
+              .then((result) => {
+                return res
+                  .status(200)
+                  .json({ status: true, result: result, data: data });
+              });
+          } else {
+            return res.status(200).json({
+              status: false,
+              message: err,
+            });
+          }
         });
       }
+    } else if (data?.user_type === "admin") {
+    } else {
+      return res.status(200).json({
+        status: false,
+        message: "Invalid email or password",
+      });
     }
   } catch (error) {
     res.status(400).json({

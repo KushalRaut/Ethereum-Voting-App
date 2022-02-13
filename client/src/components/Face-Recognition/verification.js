@@ -66,6 +66,7 @@ const Verification = () => {
         .clearRect(0, 0, videoWidth, videoHeight);
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections);
+      console.log(labeledFaceDescriptors);
 
       if (labeledFaceDescriptors) {
         const faceMatcher = new faceapi.FaceMatcher(
