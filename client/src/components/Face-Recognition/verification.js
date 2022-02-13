@@ -66,7 +66,6 @@ const Verification = () => {
         .clearRect(0, 0, videoWidth, videoHeight);
       faceapi.draw.drawDetections(canvasRef.current, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvasRef.current, resizedDetections);
-      console.log(labeledFaceDescriptors);
 
       if (labeledFaceDescriptors) {
         const faceMatcher = new faceapi.FaceMatcher(
@@ -91,7 +90,7 @@ const Verification = () => {
 
   function loadLabeledImages() {
     const label = sessionStorage.getItem("name");
-    let labels = ["Nirajan"];
+    let labels = ["Kushal"];
     return Promise.all(
       labels.map(async (label) => {
         const descriptions = [];

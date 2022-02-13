@@ -1,6 +1,23 @@
 import React, { useEffect, useState, useRef } from 'react'
+import {
+  AccountInfo,
+  NavBarContainer,
+  NavbarContent,
+  NavBarLogo,
+  NavBarText,
+  AccountInfoBtn,
+  BodyContainer,
+  FormWrap,
+  InputGroupContainer,
+  InputGroup,
+  FormLabel,
+  InputField,
+  SubmitButton,
+} from './AddCandidateElements'
 import '../../styles/AddCandidate.css'
 import Electionabi from '../../contracts/Election.json'
+import { SiHiveBlockchain } from 'react-icons/si'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 const Web3 = require('web3')
 
@@ -74,13 +91,21 @@ const AddCandidate = () => {
     }
   }
 
-  const addCandidates = async (name, party, citizenNo,dob,img,email) => {
+  let navigate = useNavigate()
+  const addCandidates = async (name, party, citizenNo, dob, img, email) => {
     await Electionsm.methods
-      .addCandidates(name, party,citizenNo ,dob, img, email)
+      .addCandidates(name, party, citizenNo, dob, img, email)
       .send({ from: currentaccount })
       .on('transactionhash', () => {
         console.log('successfully added', name)
       })
+    navigate('/admin/dashboard')
+  }
+  let presentAccount = String
+  if (currentaccount) {
+    const firstPart = currentaccount.substring(0, 6)
+    const lastPart = currentaccount.substring(currentaccount.length - 7)
+    presentAccount = firstPart + '....' + lastPart
   }
 
   useEffect(async () => {
@@ -124,130 +149,135 @@ const AddCandidate = () => {
     )
   }
 
+  //Fetch Latest Data
+  const fetchDataHandler = () => {
+    window.location.reload()
+  }
+
   return (
-    <div className="add-container shadow-lg">
-      <form className="px-3" onSubmit={submitHandler}>
-        <h3 className="pt-2">New Candidate</h3>
-        <label htmlFor="party-name" className="form-label">
-          Photo
-        </label>
-        {preview ? (
-          <img src={preview} className="preview-img" />
-        ) : (
-          <button
-            className="img-btn"
-            onClick={(e) => {
-              e.preventDefault()
-              fileInputRef.current.click()
+    <>
+      <NavBarContainer>
+        <NavbarContent>
+          <NavBarLogo>
+            <NavBarText>
+              <SiHiveBlockchain />
+              E-Vote Nepal
+            </NavBarText>
+          </NavBarLogo>
+          <AccountInfoBtn onClick={fetchDataHandler}>
+            <AccountInfo>Current Account: {presentAccount}</AccountInfo>
+          </AccountInfoBtn>
+        </NavbarContent>
+      </NavBarContainer>
+      <BodyContainer>
+        <FormWrap onSubmit={submitHandler}>
+          <h3 className="pt-2">New Candidate</h3>
+          <FormLabel htmlFor="candidate-photo">Photo</FormLabel>
+          {preview ? (
+            <img src={preview} className="preview-img" alt="no-img" />
+          ) : (
+            <button
+              className="img-btn"
+              onClick={(e) => {
+                e.preventDefault()
+                fileInputRef.current.click()
+              }}
+            >
+              Browse
+            </button>
+          )}
+          <input
+            type="file"
+            style={{ display: 'none' }}
+            ref={fileInputRef}
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files[0]
+              if (file && file.type.substr(0, 5) === 'image') {
+                setImage(file)
+              } else {
+                setImage(null)
+              }
             }}
-          >
-            Browse
-          </button>
-        )}
-        <input
-          type="file"
-          style={{ display: 'none' }}
-          ref={fileInputRef}
-          accept="image/*"
-          onChange={(e) => {
-            const file = e.target.files[0]
-            if (file && file.type.substr(0, 5) === 'image') {
-              setImage(file)
-            } else {
-              setImage(null)
-            }
-          }}
-          required
-        />
+            required
+          />
 
-        <label htmlFor="party-name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidateName}
-          onChange={(e) => {
-            setCandidateName(e.target.value)
-          }}
-          required
-        />
-        <label htmlFor="party-name" className="form-label">
-          Party
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidateParty}
-          onChange={(e) => {
-            setCandidateParty(e.target.value)
-          }}
-          required
-        />
-        <label htmlFor="party-name" className="form-label">
-          Email
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidateEmail}
-          onChange={(e) => {
-            setCandidateEmail(e.target.value)
-          }}
-          required
-        />
-        <label htmlFor="party-name" className="form-label">
-          Citizenship No.
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidateCitizenNo}
-          onChange={(e) => {
-            setCandidateCitizenNo(e.target.value)
-          }}
-          required
-        />
-        <label htmlFor="party-name" className="form-label">
-          DOB
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidateDOB}
-          onChange={(e) => {
-            setCandidateDOB(e.target.value)
-          }}
-          required
-        />
-        <label htmlFor="party-name" className="form-label">
-          Phone No.
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidatePhoneNo}
-          onChange={(e) => {
-            setCandidatePhoneNo(e.target.value)
-          }}
-          required
-        />
-        <label htmlFor="party-name" className="form-label">
-          Location
-        </label>
-        <input
-          type="text"
-          className="d-block w-100 party"
-          value={candidateLocation}
-          onChange={(e) => {
-            setCandidateLocation(e.target.value)
-          }}
-          required
-        />
+          <InputGroupContainer>
+            <InputGroup>
+              <FormLabel htmlFor="candidate-name">Name</FormLabel>
+              <InputField
+                type="text"
+                value={candidateName}
+                onChange={(e) => {
+                  setCandidateName(e.target.value)
+                }}
+                required
+              />
+              <FormLabel htmlFor="candidate-party">Party</FormLabel>
+              <InputField
+                type="text"
+                value={candidateParty}
+                onChange={(e) => {
+                  setCandidateParty(e.target.value)
+                }}
+                required
+              />
+              <FormLabel htmlFor="candidate-email">Email</FormLabel>
+              <InputField
+                type="text"
+                value={candidateEmail}
+                onChange={(e) => {
+                  setCandidateEmail(e.target.value)
+                }}
+                required
+              />
+              <FormLabel htmlFor="candidate-citizenno">
+                Citizenship Number
+              </FormLabel>
+              <InputField
+                type="text"
+                value={candidateCitizenNo}
+                onChange={(e) => {
+                  setCandidateCitizenNo(e.target.value)
+                }}
+                required
+              />
+            </InputGroup>
+            <InputGroup>
+              <FormLabel htmlFor="candidate-dob">Candidate DOB</FormLabel>
+              <InputField
+                type="text"
+                value={candidateDOB}
+                onChange={(e) => {
+                  setCandidateDOB(e.target.value)
+                }}
+                required
+              />
+              <FormLabel htmlFor="candidate-phone">Phone Number</FormLabel>
+              <InputField
+                type="text"
+                value={candidatePhoneNo}
+                onChange={(e) => {
+                  setCandidatePhoneNo(e.target.value)
+                }}
+                required
+              />
+              <FormLabel htmlFor="candidate-location">Location</FormLabel>
+              <InputField
+                type="text"
+                value={candidateLocation}
+                onChange={(e) => {
+                  setCandidateLocation(e.target.value)
+                }}
+                required
+              />
+            </InputGroup>
+          </InputGroupContainer>
 
-        <button className="w-100 my-3 submit-button text-white">Submit</button>
-      </form>
-    </div>
+          <SubmitButton onClick={submitHandler}>Submit</SubmitButton>
+        </FormWrap>
+      </BodyContainer>
+    </>
   )
 }
 

@@ -9,7 +9,7 @@ const CandidateCard = ({ candidate, voteCandidate }) => {
 
   return (
     <div className="main_card shadow-lg m-4">
-      <img src={`${candidate.img}`} className="candidate-img w-75 h-100"></img>
+      <img src={`${candidate.img}`} className="candidate-img"></img>
 
       <hr />
       <div className="body-container">

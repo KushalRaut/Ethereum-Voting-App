@@ -1,3 +1,7 @@
+video {
+  object-fit: none !important;
+}
+
 .display-flex {
   display: flex;
 }
