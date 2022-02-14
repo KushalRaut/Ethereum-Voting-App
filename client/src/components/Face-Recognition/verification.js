@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as faceapi from "face-api.js";
 import "./Verification.css";
-import axios from "axios";
 
 const Verification = () => {
   const videoHeight = 480;

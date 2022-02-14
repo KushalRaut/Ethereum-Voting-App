@@ -28,3 +28,5 @@ const candidateSchema = mongoose.Schema(
 );
 
 const Candidate = mongoose.model("candidates", candidateSchema);
+
+export default Candidate;
