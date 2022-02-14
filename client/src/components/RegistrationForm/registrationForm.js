@@ -36,8 +36,10 @@ const RegistrationForm = () => {
     axios
       .post(BASE_API_URL, data, {
         "Content-Type": "multipart/form-data",
+        Connection: "keep-alive",
       })
       .then((response) => {
+        console.log(response.data);
         if (response.data.status) {
           setRespdata(response.data);
           navigate("/login");
@@ -187,10 +189,10 @@ const RegistrationForm = () => {
               </div>
 
               <div>
+                {message ? <div className="error">{message}</div> : null}
                 <button type="submit" className="btn btn-primary mt-4 mb-4 ">
                   Submit
                 </button>
-                {message ? <div className="error">{message}</div> : null}
               </div>
             </form>
           </div>
