@@ -22,11 +22,28 @@ import {
 } from "./LoginElements";
 import { SiHiveBlockchain } from "react-icons/si";
 import AuthImage from "../Homepage/images/otp.svg";
+import { css } from "@emotion/react";
+
+import { RingLoader } from "react-spinners";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const Login = () => {
   const BASE_API_URL = "http://localhost:4000/api/user/login";
   const navigate = useNavigate();
   const [message, setMessage] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+  const color = "#101C03";
 
   const initialValues = {
     email: "",
@@ -34,7 +51,8 @@ const Login = () => {
   };
 
   const onSubmit = (values) => {
-    console.log("clicked");
+    setIsLoading(true);
+    setIsSubmitted(true);
     axios
       .post(BASE_API_URL, values, {
         "Content-Type": "application/json",
@@ -44,9 +62,13 @@ const Login = () => {
         if (response.data.status) {
           sessionStorage.setItem("phoneNo", response.data.result.to);
           sessionStorage.setItem("name", response.data.data.name);
+          sessionStorage.setItem("userType", response.data.data.user_type);
           navigate("/verify");
+          setIsLoading(false);
+          setIsSubmitted(false);
         } else {
           setMessage(response.data.message);
+          setIsSubmitted(false);
         }
       });
   };
@@ -84,6 +106,7 @@ const Login = () => {
                   value={formik.values.email}
                   required
                 />
+
                 <FormLabel htmlFor="password">Password</FormLabel>
                 <FormInput
                   id="password"
@@ -96,13 +119,21 @@ const Login = () => {
                 {formik.touched.password && formik.errors.password ? (
                   <div className="error">{formik.errors.password}</div>
                 ) : null}
-                {message ? <ErrorText>{message}</ErrorText> : null}
                 <FormButton type="submit">Log In</FormButton>
+                {message ? <div className="error">{message}</div> : null}
                 <Text to="/register">Register Now ❯</Text>
               </Form>
             </FormContent>
           </FormWrap>
           <ImgWrapper>
+            {isSubmitted ? (
+              <RingLoader
+                color={color}
+                loading={isLoading}
+                css={override}
+                size={100}
+              />
+            ) : null}
             <Img src={AuthImage}></Img>
           </ImgWrapper>
         </Wrapper>

@@ -22,7 +22,11 @@ export const userLogin = async (req, res) => {
       return res
         .status(200)
         .json({ status: false, message: "Invalid Email or Password" });
-    if (data?.user_type === "voter") {
+    if (
+      data?.user_type === "voter" ||
+      data?.user_type === "candidate" ||
+      data?.user_type === "admin"
+    ) {
       if (data) {
         bcrypt.compare(password, data.password, function (err, result) {
           // result == true
@@ -46,31 +50,6 @@ export const userLogin = async (req, res) => {
           }
         });
       }
-    } else if (data?.user_type === "candidate") {
-      if (data) {
-        bcrypt.compare(password, data.password, function (err, result) {
-          // result == true
-          if (result === true) {
-            client.verify
-              .services(serviceID)
-              .verifications.create({
-                to: `+977${data.phone_No}`,
-                channel: "sms",
-              })
-              .then((result) => {
-                return res
-                  .status(200)
-                  .json({ status: true, result: result, data: data });
-              });
-          } else {
-            return res.status(200).json({
-              status: false,
-              message: err,
-            });
-          }
-        });
-      }
-    } else if (data?.user_type === "admin") {
     } else {
       return res.status(200).json({
         status: false,
@@ -127,7 +106,7 @@ export const verifyLogin = async (req, res) => {
 
 export const userRegister = async (req, res) => {
   try {
-    const body = req.body;
+    let body = req.body;
     const file = req.file;
     const saltRounds = 10;
 
@@ -159,13 +138,6 @@ export const userRegister = async (req, res) => {
       body.password = hash;
       userData = await User.create(body);
     });
-
-    // if (user_type == "voter") {
-    //   userData = await User.create(body);
-    // } else {
-    //   body.user_type = "voter";
-    //   userData = await User.create(body);
-    // }
 
     if (userData) {
       res.status(200).json({
