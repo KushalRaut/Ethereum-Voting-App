@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as faceapi from 'face-api.js'
 import './Verification.css'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Verification = () => {
@@ -9,6 +10,8 @@ const Verification = () => {
   const [initializing, setInitializing] = useState(false)
   const videoRef = useRef()
   const canvasRef = useRef()
+  let navigate = useNavigate()
+  let result = []
 
   useEffect(() => {
     const loadModels = async () => {
@@ -36,7 +39,7 @@ const Verification = () => {
   }
 
   const handleVideoOnPlay = async () => {
-    setInterval(async () => {
+    const regInterval = setInterval(async () => {
       if (initializing) {
         setInitializing(false)
       }
@@ -74,6 +77,7 @@ const Verification = () => {
           faceMatcher.findBestMatch(d.descriptor)
         )
         console.log(results)
+        result = results
         results.forEach((result, i) => {
           const box = resizedDetections[i].detection.box
           const drawBox = new faceapi.draw.DrawBox(box, {
@@ -81,8 +85,12 @@ const Verification = () => {
           })
           drawBox.draw(canvasRef.current, resizedDetections)
         })
+        if (results[0]._label === 'Kushal') {
+          navigate('/voter/dashboard')
+          window.location.reload()
+        }
       }
-    }, 100)
+    }, 1000)
   }
 
   function loadLabeledImages() {
