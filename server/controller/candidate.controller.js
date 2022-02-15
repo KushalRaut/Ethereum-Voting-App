@@ -1,4 +1,7 @@
-// import Candidate from "../model/candidate.model.js";
+import Candidate from "../model/candidate.model.js";
+import User from "../model/user.model.js";
+
+import bcrypt from "bcrypt";
 
 export const postManifesto = async (req, res) => {
   try {
@@ -44,6 +47,61 @@ export const getAllManifestos = async (req, res) => {
     }
   } catch (error) {
     res.status(401).json({
+      message: error,
+    });
+  }
+};
+
+export const candidateRegister = async (req, res) => {
+  try {
+    const body = req.body;
+    const file = req.file;
+    const saltRounds = 10;
+
+    const { email, phone_No, citizenship_no } = body;
+    let userData;
+    let picture_url = new Date().toUTCString() + file?.filename;
+
+    const checkEmail = await User.findOne({ email });
+    const checkPhoneNo = await User.findOne({ phone_No });
+    const checkCitizenshipNo = await User.findOne({ citizenship_no });
+
+    if (checkEmail || checkPhoneNo) {
+      return res
+        .status(200)
+        .json({ status: false, message: "Email or Phone Number already used" });
+    }
+
+    if (checkCitizenshipNo) {
+      return res
+        .status(200)
+        .json({ status: false, message: "Citizenship Number must be unique" });
+    }
+
+    body.pictureURL = picture_url;
+    body.user_type = "candidate";
+
+    bcrypt.hash("password", saltRounds, async (err, hash) => {
+      body.password = hash;
+      console.log(body);
+      userData = await User.create(body);
+    });
+
+    if (userData) {
+      res.status(200).json({
+        status: true,
+        message: "Register Successfull",
+        data: userData,
+      });
+    } else {
+      res.status(400).json({
+        status: false,
+        message: "Register Failed",
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      status: false,
       message: error,
     });
   }

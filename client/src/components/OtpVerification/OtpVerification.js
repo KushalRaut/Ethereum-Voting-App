@@ -4,6 +4,15 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./OtpVerification.css";
 import axios from "axios";
+import { css } from "@emotion/react";
+
+import { RingLoader } from "react-spinners";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 function OtpVerification() {
   const BASE_API_URL = "http://localhost:4000/api/user/verifylogin";
@@ -13,17 +22,43 @@ function OtpVerification() {
     phoneNumber: sessionStorage.getItem("phoneNo"),
     code: "",
   };
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+  const color = "#101C03";
 
   const onSubmit = (values) => {
+    setIsLoading(true);
+    setIsSubmitted(true);
     axios
       .post(BASE_API_URL, values, {
         "Content-Type": "application/json",
       })
       .then((response) => {
         if (response.data.status) {
-          navigate("/facial-verification");
+          let userType = sessionStorage.getItem("userType");
+          if (userType === "voter") {
+            navigate("/facial-verification");
+            setIsLoading(false);
+            setIsSubmitted(false);
+          }
+          if (userType === "candidate") {
+            navigate("/candidate/dashboard");
+            setIsLoading(false);
+            setIsSubmitted(false);
+          }
+          if (userType === "admin") {
+            navigate("/admin/dashboard");
+            setIsLoading(false);
+            setIsSubmitted(false);
+          }
         } else {
           setMessage(response.data.message);
+          setIsSubmitted(false);
         }
       });
   };
@@ -46,6 +81,14 @@ function OtpVerification() {
         <span className="mobile-text">
           Enter the code we just send on your mobile phone 
         </span>
+        {isSubmitted ? (
+          <RingLoader
+            color={color}
+            loading={isLoading}
+            css={override}
+            size={100}
+          />
+        ) : null}
         <form onSubmit={formik.handleSubmit}>
           <div className="d-flex flex-row mt-5">
             <input

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from "react";
 import {
   AccountInfo,
   NavBarContainer,
@@ -13,132 +13,139 @@ import {
   FormLabel,
   InputField,
   SubmitButton,
-} from './AddCandidateElements'
-import '../../styles/AddCandidate.css'
-import Electionabi from '../../contracts/Election.json'
-import { SiHiveBlockchain } from 'react-icons/si'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-const Web3 = require('web3')
+} from "./AddCandidateElements";
+import "../../styles/AddCandidate.css";
+import Electionabi from "../../contracts/Election.json";
+import { SiHiveBlockchain } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+const Web3 = require("web3");
 
 const AddCandidate = () => {
   useEffect(() => {
-    loadWeb3()
-    LoadBlockchaindata()
-  }, [])
+    loadWeb3();
+    LoadBlockchaindata();
+  }, []);
 
-  const [currentaccount, setcurrentaccount] = useState('')
-  const [Electionsm, setElectionsm] = useState()
-  const [image, setImage] = useState()
-  const [preview, setPreview] = useState()
-  const [imageurl, setImageUrl] = useState('')
-  const [candidateName, setCandidateName] = useState('')
-  const [candidateParty, setCandidateParty] = useState('')
-  const [candidateDOB, setCandidateDOB] = useState('')
-  const [candidateEmail, setCandidateEmail] = useState('')
-  const [candidateLocation, setCandidateLocation] = useState('')
-  const [candidateCitizenNo, setCandidateCitizenNo] = useState('')
-  const [candidatePhoneNo, setCandidatePhoneNo] = useState('')
+  const [currentaccount, setcurrentaccount] = useState("");
+  const [Electionsm, setElectionsm] = useState();
+  const [image, setImage] = useState();
+  const [preview, setPreview] = useState();
+  const [imageurl, setImageUrl] = useState("");
+  const [candidateName, setCandidateName] = useState("");
+  const [candidateParty, setCandidateParty] = useState("");
+  const [candidateDOB, setCandidateDOB] = useState("");
+  const [candidateEmail, setCandidateEmail] = useState("");
+  const [candidateLocation, setCandidateLocation] = useState("");
+  const [candidateCitizenNo, setCandidateCitizenNo] = useState("");
+  const [candidatePhoneNo, setCandidatePhoneNo] = useState("");
 
-  const fileInputRef = useRef()
+  const fileInputRef = useRef();
 
   //Metamask popup
   const loadWeb3 = async () => {
     if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum)
-      await window.ethereum.enable()
+      window.web3 = new Web3(window.ethereum);
+      await window.ethereum.enable();
     } else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider)
+      window.web3 = new Web3(window.web3.currentProvider);
     } else {
-      window.alert('Non-Ethereum Browser Detected . Please install metamask')
+      window.alert("Non-Ethereum Browser Detected . Please install metamask");
     }
-  }
+  };
 
   //load the data from blockchain
   const LoadBlockchaindata = async () => {
-    const web3 = window.web3
+    const web3 = window.web3;
 
-    const accounts = await web3.eth.getAccounts()
-    const account = accounts[0]
+    const accounts = await web3.eth.getAccounts();
+    const account = accounts[0];
 
-    setcurrentaccount(account)
+    setcurrentaccount(account);
 
-    const networkId = await web3.eth.net.getId()
+    const networkId = await web3.eth.net.getId();
 
-    const networkData = Electionabi.networks[networkId]
+    const networkData = Electionabi.networks[networkId];
 
     if (networkData) {
       const election = new web3.eth.Contract(
         Electionabi.abi,
         networkData.address
-      )
+      );
 
-      const totalCandidates = await election.methods.candidatesCount().call()
+      const totalCandidates = await election.methods.candidatesCount().call();
 
-      let candidate = []
+      let candidate = [];
       for (let i = 1; i <= totalCandidates; i++) {
         const { id, name, votecount } = await election.methods
           .candidates(i)
-          .call()
+          .call();
 
-        candidate[i - 1] = { id, name, votecount }
+        candidate[i - 1] = { id, name, votecount };
       }
 
-      setElectionsm(election)
-      console.log(candidate)
+      setElectionsm(election);
+      console.log(candidate);
     } else {
-      window.alert('the smart contract is not deployed in current network')
+      window.alert("the smart contract is not deployed in current network");
     }
-  }
+  };
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const addCandidates = async (name, party, citizenNo, dob, img, email) => {
     await Electionsm.methods
       .addCandidates(name, party, citizenNo, dob, img, email)
       .send({ from: currentaccount })
-      .on('transactionhash', () => {
-        console.log('successfully added', name)
-      })
-    navigate('/admin/dashboard')
-  }
-  let presentAccount = String
+      .on("transactionhash", () => {
+        console.log("successfully added", name);
+      });
+    navigate("/admin/dashboard");
+  };
+  let presentAccount = String;
   if (currentaccount) {
-    const firstPart = currentaccount.substring(0, 6)
-    const lastPart = currentaccount.substring(currentaccount.length - 7)
-    presentAccount = firstPart + '....' + lastPart
+    const firstPart = currentaccount.substring(0, 6);
+    const lastPart = currentaccount.substring(currentaccount.length - 7);
+    presentAccount = firstPart + "...." + lastPart;
   }
 
   useEffect(async () => {
     if (image) {
-      const reader = new FileReader()
+      const reader = new FileReader();
       try {
-        const data = new FormData()
-        data.append('file', image)
-        data.append('upload_preset', 'uploads')
+        const data = new FormData();
+        data.append("file", image);
+        data.append("upload_preset", "uploads");
         const uploadRes = await axios.post(
-          'https://api.cloudinary.com/v1_1/dynbrzezs/image/upload',
+          "https://api.cloudinary.com/v1_1/dynbrzezs/image/upload",
           data
-        )
-        const { url } = uploadRes.data
-        setImageUrl(url)
-        console.log(url)
+        );
+        const { url } = uploadRes.data;
+        setImageUrl(url);
+        console.log(url);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
 
       reader.onloadend = () => {
-        setPreview(reader.result)
-      }
-      reader.readAsDataURL(image)
-      setPreview(reader.result)
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(image);
+      setPreview(reader.result);
     } else {
-      setPreview(null)
+      setPreview(null);
     }
-  }, [image])
+  }, [image]);
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    let BASE_API_URL = "http://localhost:4000/api/candidate/register";
+    const data = new FormData();
+    data.append("name", candidateName);
+    data.append("email", candidateEmail);
+    data.append("location", candidateLocation);
+    data.append("citizenship_no", candidateCitizenNo);
+    data.append("phone_No", candidatePhoneNo);
+    data.append("photo", imageurl);
     addCandidates(
       candidateName,
       candidateParty,
@@ -146,13 +153,27 @@ const AddCandidate = () => {
       candidateDOB,
       imageurl,
       candidateEmail
-    )
-  }
+    );
+    await axios
+      .post(BASE_API_URL, data, {
+        "Content-Type": "multipart/form-data",
+      })
+      .then((response) => {
+        if (response.data.status) {
+          navigate("/admin/deshboard");
+        }
+      });
+  };
+
+  // const submitHandler = async (e) => {
+  //   e.preventDefault();
+  //   await axios.post();
+  // };
 
   //Fetch Latest Data
   const fetchDataHandler = () => {
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   return (
     <>
@@ -179,8 +200,8 @@ const AddCandidate = () => {
             <button
               className="img-btn"
               onClick={(e) => {
-                e.preventDefault()
-                fileInputRef.current.click()
+                e.preventDefault();
+                fileInputRef.current.click();
               }}
             >
               Browse
@@ -188,15 +209,15 @@ const AddCandidate = () => {
           )}
           <input
             type="file"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             ref={fileInputRef}
             accept="image/*"
             onChange={(e) => {
-              const file = e.target.files[0]
-              if (file && file.type.substr(0, 5) === 'image') {
-                setImage(file)
+              const file = e.target.files[0];
+              if (file && file.type.substr(0, 5) === "image") {
+                setImage(file);
               } else {
-                setImage(null)
+                setImage(null);
               }
             }}
             required
@@ -209,7 +230,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidateName}
                 onChange={(e) => {
-                  setCandidateName(e.target.value)
+                  setCandidateName(e.target.value);
                 }}
                 required
               />
@@ -218,7 +239,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidateParty}
                 onChange={(e) => {
-                  setCandidateParty(e.target.value)
+                  setCandidateParty(e.target.value);
                 }}
                 required
               />
@@ -227,7 +248,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidateEmail}
                 onChange={(e) => {
-                  setCandidateEmail(e.target.value)
+                  setCandidateEmail(e.target.value);
                 }}
                 required
               />
@@ -238,7 +259,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidateCitizenNo}
                 onChange={(e) => {
-                  setCandidateCitizenNo(e.target.value)
+                  setCandidateCitizenNo(e.target.value);
                 }}
                 required
               />
@@ -249,7 +270,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidateDOB}
                 onChange={(e) => {
-                  setCandidateDOB(e.target.value)
+                  setCandidateDOB(e.target.value);
                 }}
                 required
               />
@@ -258,7 +279,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidatePhoneNo}
                 onChange={(e) => {
-                  setCandidatePhoneNo(e.target.value)
+                  setCandidatePhoneNo(e.target.value);
                 }}
                 required
               />
@@ -267,7 +288,7 @@ const AddCandidate = () => {
                 type="text"
                 value={candidateLocation}
                 onChange={(e) => {
-                  setCandidateLocation(e.target.value)
+                  setCandidateLocation(e.target.value);
                 }}
                 required
               />
@@ -278,7 +299,7 @@ const AddCandidate = () => {
         </FormWrap>
       </BodyContainer>
     </>
-  )
-}
+  );
+};
 
-export default AddCandidate
+export default AddCandidate;
