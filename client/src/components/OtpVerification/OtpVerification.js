@@ -75,10 +75,10 @@ function OtpVerification() {
   });
 
   return (
-    <div className="d-flex justify-content-center align-items-center container">
-      <div className="card py-5 px-3">
-        <h5 className="m-0">Mobile phone verification</h5>
-        <span className="mobile-text">
+    <div className="otp-box-container">
+      <div className="card py-4 px-2 border border-success">
+        <h5 className="fs-3 mb-2 text-center">Mobile phone verification</h5>
+        <span className="mobile-text text-center mt-1 fs-6">
           Enter the code we just send on your mobile phone 
         </span>
         {isSubmitted ? (
@@ -94,7 +94,7 @@ function OtpVerification() {
             <input
               id="code"
               type="text"
-              className="form-control"
+              className="form-control text-center"
               onChange={formik.handleChange}
               value={formik.values.code}
             />

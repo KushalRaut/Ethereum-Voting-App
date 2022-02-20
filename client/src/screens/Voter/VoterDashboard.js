@@ -46,9 +46,9 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/livedata" className="link d-block">
+              <Link to="/walletid" className="link d-block">
                 <ImStatsBars />
-                <span className="mx-3 py-2">Analytics</span>
+                <span className="mx-3 py-2">Wallet Id</span>
               </Link>
             </div>
           </div>
