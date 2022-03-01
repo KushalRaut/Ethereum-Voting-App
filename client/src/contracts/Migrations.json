@@ -50,7 +50,7 @@
   "sourceMap": "61:413:1:-:0;;;111:10;88:33;;;;;;;;;;;;;;;;;;;;61:413;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "61:413:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:39;;;:::i;:::-;;;;;;;;;;;;;;;;;;;88:33;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;357:114;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;128:39;;;;:::o;88:33::-;;;;;;;;;;;;:::o;357:114::-;245:5;;;;;;;;;;231:19;;:10;:19;;;209:120;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;454:9:::1;427:24;:36;;;;357:114:::0;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.7.0;\r\n\r\ncontract Migrations {\r\n    address public owner = msg.sender;\r\n    uint256 public last_completed_migration;\r\n\r\n    modifier restricted() {\r\n        require(\r\n            msg.sender == owner,\r\n            \"This function is restricted to the contract's owner\"\r\n        );\r\n        _;\r\n    }\r\n\r\n    function setCompleted(uint256 completed) public restricted {\r\n        last_completed_migration = completed;\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\HP\\Documents\\Ethereum Voting App\\contracts\\Migrations.sol",
+  "sourcePath": "D:\\Ethereum voting app\\Ethereum-Voting-App\\contracts\\Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -936,12 +936,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xE5c240e0483617ec617026A6862fc5f913a908AB",
-      "transactionHash": "0xf796ab993cc44a9bc107f4ae52c75f3e726e658d168725c1288f24fa7cda3900"
+      "address": "0xba2b6f6087266c18dC4E0C7c87A3cd0A850aB6Ab",
+      "transactionHash": "0xd95a926e67a1b706e88ebbf3a625ab311bbb64bc1ddc917a5c893ece648c2de9"
     }
   },
-  "schemaVersion": "3.4.3",
-  "updatedAt": "2022-02-14T16:00:49.816Z",
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-02-19T15:12:07.496Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

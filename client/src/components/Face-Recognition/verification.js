@@ -1,19 +1,16 @@
-
-import React, { useState, useEffect, useRef } from 'react'
-import * as faceapi from 'face-api.js'
-import './Verification.css'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect, useRef } from "react";
+import * as faceapi from "face-api.js";
+import "./Verification.css";
+import { useNavigate } from "react-router-dom";
 
 const Verification = () => {
-  const videoHeight = 480
-  const videoWidth = 640
-  const [initializing, setInitializing] = useState(false)
-  const videoRef = useRef()
-  const canvasRef = useRef()
-  let navigate = useNavigate()
-  let result = []
-
+  const videoHeight = 480;
+  const videoWidth = 640;
+  const [initializing, setInitializing] = useState(false);
+  const videoRef = useRef();
+  const canvasRef = useRef();
+  let navigate = useNavigate();
+  let result = [];
 
   useEffect(() => {
     const loadModels = async () => {
@@ -80,27 +77,27 @@ const Verification = () => {
 
         const results = resizedDetections.map((d) =>
           faceMatcher.findBestMatch(d.descriptor)
-        )
-        console.log(results)
-        result = results
+        );
+        console.log(results);
+        result = results;
         results.forEach((result, i) => {
           const box = resizedDetections[i].detection.box;
           const drawBox = new faceapi.draw.DrawBox(box, {
             label: result.toString(),
-          })
-          drawBox.draw(canvasRef.current, resizedDetections)
-        })
-        if (results[0]._label === 'Kushal') {
-          navigate('/voter/dashboard')
-          window.location.reload()
+          });
+          drawBox.draw(canvasRef.current, resizedDetections);
+        });
+        if (results[0]._label === "Nirajan") {
+          navigate("/voter/dashboard");
+          window.location.reload();
         }
       }
-    }, 1000)
-  }
+    }, 1000);
+  };
 
   function loadLabeledImages() {
     const label = sessionStorage.getItem("name");
-    let labels = ["Kushal"];
+    let labels = ["Nirajan"];
     return Promise.all(
       labels.map(async (label) => {
         const descriptions = [];
