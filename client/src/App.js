@@ -14,6 +14,7 @@ import CandidateManifesto from './components/Candidate/CandidateManifesto'
 import AddCandidate from './components/Blockchain/AddCandidate'
 import ManageCandidates from './components/Blockchain/ManageCandidates'
 import LiveData from './components/Blockchain/LiveData'
+import GetMetaId from './components/GetMetaId/GetMetaId'
 
 const App = () => {
   const [user, setUser] = useState('')
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/facial-verification" element={<Verification />} />
         <Route path="/admin/addCandidate" element={<AddCandidate />} />
         <Route path="/admin/manageCandidates" element={<ManageCandidates />} />
+        <Route path="/walletid" element={<GetMetaId />} exact/>
       </Routes>
     </>
   )

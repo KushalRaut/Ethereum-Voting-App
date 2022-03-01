@@ -4,17 +4,21 @@
   border-radius: 20px;
   background: #fff;
   border: none;
-  height: 350px;
   position: relative;
+}
+
+.otp-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .error {
   color: red;
 }
 
-.container {
-  height: 100vh;
-}
 
 body {
   background: #eee;

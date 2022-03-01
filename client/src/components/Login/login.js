@@ -63,6 +63,7 @@ const Login = () => {
           sessionStorage.setItem("phoneNo", response.data.result.to);
           sessionStorage.setItem("name", response.data.data.name);
           sessionStorage.setItem("userType", response.data.data.user_type);
+          sessionStorage.setItem("email", response.data.data.email);
           navigate("/verify");
           setIsLoading(false);
           setIsSubmitted(false);
