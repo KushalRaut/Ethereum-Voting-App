@@ -254,9 +254,7 @@
   "ast": {
     "absolutePath": "project:/contracts/Election.sol",
     "exportedSymbols": {
-      "Election": [
-        308
-      ]
+      "Election": [308]
     },
     "id": 309,
     "license": "MIT",
@@ -264,12 +262,7 @@
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          ">=",
-          "0.7",
-          ".0"
-        ],
+        "literals": ["solidity", ">=", "0.7", ".0"],
         "nodeType": "PragmaDirective",
         "src": "33:24:0"
       },
@@ -281,9 +274,7 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 308,
-        "linearizedBaseContracts": [
-          308
-        ],
+        "linearizedBaseContracts": [308],
         "name": "Election",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -3981,10 +3972,7 @@
                       "id": 257,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "3261:7:0",
                       "typeDescriptions": {
@@ -4141,10 +4129,7 @@
                       "id": 266,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "3381:7:0",
                       "typeDescriptions": {
@@ -4663,21 +4648,14 @@
     "attributes": {
       "absolutePath": "project:/contracts/Election.sol",
       "exportedSymbols": {
-        "Election": [
-          308
-        ]
+        "Election": [308]
       },
       "license": "MIT"
     },
     "children": [
       {
         "attributes": {
-          "literals": [
-            "solidity",
-            ">=",
-            "0.7",
-            ".0"
-          ]
+          "literals": ["solidity", ">=", "0.7", ".0"]
         },
         "id": 1,
         "name": "PragmaDirective",
@@ -4686,18 +4664,12 @@
       {
         "attributes": {
           "abstract": false,
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
+          "baseContracts": [null],
+          "contractDependencies": [null],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            308
-          ],
+          "linearizedBaseContracts": [308],
           "name": "Election",
           "scope": 309
         },
@@ -5300,9 +5272,7 @@
               "implemented": true,
               "isConstructor": true,
               "kind": "constructor",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "",
               "overrides": null,
               "scope": 308,
@@ -5313,9 +5283,7 @@
             "children": [
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 44,
@@ -5324,9 +5292,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 45,
@@ -5345,9 +5311,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -5381,9 +5345,7 @@
                                   "typeString": "literal_string \"kpoli1@nepal.com\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 158,
                               "type": "function (string memory,string memory,string memory,string memory,string memory,string memory)",
                               "value": "addCandidates"
@@ -5514,9 +5476,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -5550,9 +5510,7 @@
                                   "typeString": "literal_string \"sherbdrdeuba@nepal.com\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 158,
                               "type": "function (string memory,string memory,string memory,string memory,string memory,string memory)",
                               "value": "addCandidates"
@@ -5683,9 +5641,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -5719,9 +5675,7 @@
                                   "typeString": "literal_string \"gaganthapa@nepal.com\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 158,
                               "type": "function (string memory,string memory,string memory,string memory,string memory,string memory)",
                               "value": "addCandidates"
@@ -5852,9 +5806,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -5888,9 +5840,7 @@
                                   "typeString": "literal_string \"puspakdahal@nepal.com\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 158,
                               "type": "function (string memory,string memory,string memory,string memory,string memory,string memory)",
                               "value": "addCandidates"
@@ -6021,9 +5971,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -6057,9 +6005,7 @@
                                   "typeString": "literal_string \"kamalthapa@nepal.com\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 158,
                               "type": "function (string memory,string memory,string memory,string memory,string memory,string memory)",
                               "value": "addCandidates"
@@ -6197,9 +6143,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "addCandidates",
               "overrides": null,
               "scope": 308,
@@ -6385,9 +6329,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 106,
@@ -6413,9 +6355,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 20,
                               "type": "uint256",
                               "value": "candidatesCount"
@@ -6454,9 +6394,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 33,
                               "type": "uint256",
                               "value": "i"
@@ -6505,9 +6443,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 35,
                                       "type": "uint256",
                                       "value": "temp"
@@ -6529,9 +6465,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 30,
                                           "type": "uint256[5] storage ref",
                                           "value": "ranvote"
@@ -6558,9 +6492,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 33,
                                               "type": "uint256",
                                               "value": "i"
@@ -6632,9 +6564,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 39,
                                           "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                           "value": "candidates"
@@ -6646,9 +6576,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 20,
                                           "type": "uint256",
                                           "value": "candidatesCount"
@@ -6670,9 +6598,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": true,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "tryCall": false,
                                       "type": "struct Election.Candidate memory",
                                       "type_conversion": false
@@ -6714,9 +6640,7 @@
                                               "typeString": "uint256"
                                             }
                                           ],
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 18,
                                           "type": "type(struct Election.Candidate storage pointer)",
                                           "value": "Candidate"
@@ -6728,9 +6652,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 20,
                                           "type": "uint256",
                                           "value": "candidatesCount"
@@ -6742,9 +6664,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 94,
                                           "type": "string memory",
                                           "value": "name"
@@ -6756,9 +6676,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 96,
                                           "type": "string memory",
                                           "value": "party"
@@ -6770,9 +6688,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 98,
                                           "type": "string memory",
                                           "value": "citizenshipNo"
@@ -6784,9 +6700,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 100,
                                           "type": "string memory",
                                           "value": "dob"
@@ -6798,9 +6712,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 102,
                                           "type": "string memory",
                                           "value": "img"
@@ -6812,9 +6724,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 104,
                                           "type": "string memory",
                                           "value": "email"
@@ -6826,9 +6736,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 35,
                                           "type": "uint256",
                                           "value": "temp"
@@ -6869,9 +6777,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 33,
                                       "type": "uint256",
                                       "value": "i"
@@ -6923,9 +6829,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 39,
                                           "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                           "value": "candidates"
@@ -6937,9 +6841,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 20,
                                           "type": "uint256",
                                           "value": "candidatesCount"
@@ -6961,9 +6863,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": true,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "tryCall": false,
                                       "type": "struct Election.Candidate memory",
                                       "type_conversion": false
@@ -7005,9 +6905,7 @@
                                               "typeString": "int_const 0"
                                             }
                                           ],
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 18,
                                           "type": "type(struct Election.Candidate storage pointer)",
                                           "value": "Candidate"
@@ -7019,9 +6917,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 20,
                                           "type": "uint256",
                                           "value": "candidatesCount"
@@ -7033,9 +6929,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 94,
                                           "type": "string memory",
                                           "value": "name"
@@ -7047,9 +6941,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 96,
                                           "type": "string memory",
                                           "value": "party"
@@ -7061,9 +6953,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 98,
                                           "type": "string memory",
                                           "value": "citizenshipNo"
@@ -7075,9 +6965,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 100,
                                           "type": "string memory",
                                           "value": "dob"
@@ -7089,9 +6977,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 102,
                                           "type": "string memory",
                                           "value": "img"
@@ -7103,9 +6989,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 104,
                                           "type": "string memory",
                                           "value": "email"
@@ -7173,9 +7057,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "delCandidates",
               "overrides": null,
               "scope": 308,
@@ -7221,9 +7103,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 162,
@@ -7252,9 +7132,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 160,
                               "type": "uint256",
                               "value": "id"
@@ -7266,9 +7144,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 20,
                               "type": "uint256",
                               "value": "candidatesCount"
@@ -7310,9 +7186,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 39,
                                           "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                           "value": "candidates"
@@ -7324,9 +7198,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 160,
                                           "type": "uint256",
                                           "value": "id"
@@ -7353,9 +7225,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 39,
                                           "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                           "value": "candidates"
@@ -7382,9 +7252,7 @@
                                           {
                                             "attributes": {
                                               "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
+                                              "overloadedDeclarations": [null],
                                               "referencedDeclaration": 160,
                                               "type": "uint256",
                                               "value": "id"
@@ -7446,9 +7314,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 160,
                                       "type": "uint256",
                                       "value": "id"
@@ -7521,9 +7387,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 39,
                                   "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                   "value": "candidates"
@@ -7535,9 +7399,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 20,
                                   "type": "uint256",
                                   "value": "candidatesCount"
@@ -7578,9 +7440,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 20,
                               "type": "uint256",
                               "value": "candidatesCount"
@@ -7616,9 +7476,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "editCandidates",
               "overrides": null,
               "scope": 308,
@@ -7804,9 +7662,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 205,
@@ -7853,9 +7709,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -7867,9 +7721,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 193,
                                       "type": "uint256",
                                       "value": "id"
@@ -7891,9 +7743,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 195,
                               "type": "string memory",
                               "value": "name"
@@ -7950,9 +7800,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -7964,9 +7812,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 193,
                                       "type": "uint256",
                                       "value": "id"
@@ -7988,9 +7834,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 197,
                               "type": "string memory",
                               "value": "party"
@@ -8047,9 +7891,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -8061,9 +7903,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 193,
                                       "type": "uint256",
                                       "value": "id"
@@ -8085,9 +7925,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 199,
                               "type": "string memory",
                               "value": "citizenshipNo"
@@ -8144,9 +7982,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -8158,9 +7994,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 193,
                                       "type": "uint256",
                                       "value": "id"
@@ -8182,9 +8016,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 201,
                               "type": "string memory",
                               "value": "dob"
@@ -8241,9 +8073,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -8255,9 +8085,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 193,
                                       "type": "uint256",
                                       "value": "id"
@@ -8279,9 +8107,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 203,
                               "type": "string memory",
                               "value": "email"
@@ -8452,9 +8278,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "Vote",
               "overrides": null,
               "scope": 308,
@@ -8500,9 +8324,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 256,
@@ -8521,9 +8343,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -8541,10 +8361,7 @@
                                   "typeString": "literal_string \"You have already voted\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                -18,
-                                -18
-                              ],
+                              "overloadedDeclarations": [-18, -18],
                               "referencedDeclaration": -18,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -8578,9 +8395,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 43,
                                       "type": "mapping(address => bool)",
                                       "value": "votedornot"
@@ -8604,9 +8419,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": -15,
                                           "type": "msg",
                                           "value": "msg"
@@ -8667,9 +8480,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -8687,10 +8498,7 @@
                                   "typeString": "literal_string \"The id does not exist\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                -18,
-                                -18
-                              ],
+                              "overloadedDeclarations": [-18, -18],
                               "referencedDeclaration": -18,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -8739,9 +8547,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 39,
                                           "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                           "value": "candidates"
@@ -8753,9 +8559,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 254,
                                           "type": "uint256",
                                           "value": "_id"
@@ -8861,9 +8665,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -8875,9 +8677,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 254,
                                       "type": "uint256",
                                       "value": "_id"
@@ -8949,9 +8749,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 43,
                                   "type": "mapping(address => bool)",
                                   "value": "votedornot"
@@ -8975,9 +8773,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": -15,
                                       "type": "msg",
                                       "value": "msg"
@@ -9033,9 +8829,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -9061,9 +8855,7 @@
                                   "typeString": "uint256"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 252,
                               "type": "function (uint256,string memory,string memory,uint256)",
                               "value": "votesuccess"
@@ -9075,9 +8867,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 254,
                               "type": "uint256",
                               "value": "_id"
@@ -9111,9 +8901,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -9125,9 +8913,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 254,
                                       "type": "uint256",
                                       "value": "_id"
@@ -9171,9 +8957,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -9185,9 +8969,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 254,
                                       "type": "uint256",
                                       "value": "_id"
@@ -9231,9 +9013,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 39,
                                       "type": "mapping(uint256 => struct Election.Candidate storage ref)",
                                       "value": "candidates"
@@ -9245,9 +9025,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 254,
                                       "type": "uint256",
                                       "value": "_id"
@@ -9304,12 +9082,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xd8cCC7f84a7299A0be6b6C2bFb9d7CAae16B08A5",
-      "transactionHash": "0xc9381f5e12a465d048acc2fc79fb60dcf4e5b0cd009212804a038548880738f0"
+      "address": "0xD8F2A7c7b49e738633F4C01a645647A3C61e95c4",
+      "transactionHash": "0x0b3828c876257e908d7a7757a50cd7276346a9b9d9e72760df37ddb859674d3e"
     }
   },
-  "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-19T15:12:07.488Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-02-20T09:41:15.233Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
