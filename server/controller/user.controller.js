@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 import bcrypt from "bcrypt";
+import cloudinary from "../config/cloudinary.js";
 
 dotenv.config();
 
@@ -112,9 +113,7 @@ export const userRegister = async (req, res) => {
 
     const { email, phone_No, user_type, citizenship_no, password } = body;
     let userData;
-    let picture_url = new Date().toUTCString() + file?.filename;
-
-    console.log(picture_url);
+    let picture_url = await cloudinary.v2.uploader.upload(file.path);
 
     const checkEmail = await User.findOne({ email });
     const checkPhoneNo = await User.findOne({ phone_No });
@@ -132,14 +131,14 @@ export const userRegister = async (req, res) => {
         .json({ status: false, message: "Citizenship Number must be unique" });
     }
 
-    body.pictureURL = picture_url;
+    body.pictureURL = picture_url.secure_url;
     body.user_type = "voter";
     bcrypt.hash(password, saltRounds, async (err, hash) => {
       body.password = hash;
       userData = await User.create(body);
     });
 
-    if (userData) {
+    if (userData !== null) {
       res.status(200).json({
         status: true,
         message: "Register Successfull",
@@ -164,6 +163,34 @@ export const getUserById = async (req, res) => {
     const { id } = req.params;
 
     const userData = await User.findOne({ _id: id });
+
+    if (userData) {
+      res.status(200).json({
+        status: true,
+        message: "User Found",
+        data: userData,
+      });
+    } else {
+      res.status(404).json({
+        status: false,
+        message: "No user found",
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: error,
+    });
+  }
+};
+
+export const getUserByEmail = async (req, res) => {
+  try {
+    console.log("check");
+    const { email } = req.body;
+    console.log(email);
+
+    const userData = await User.findOne({ email: email });
 
     if (userData) {
       res.status(200).json({

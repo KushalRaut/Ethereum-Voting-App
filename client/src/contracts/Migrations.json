@@ -50,13 +50,11 @@
   "sourceMap": "61:413:1:-:0;;;111:10;88:33;;;;;;;;;;;;;;;;;;;;61:413;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "61:413:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:39;;;:::i;:::-;;;;;;;;;;;;;;;;;;;88:33;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;357:114;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;128:39;;;;:::o;88:33::-;;;;;;;;;;;;:::o;357:114::-;245:5;;;;;;;;;;231:19;;:10;:19;;;209:120;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;454:9:::1;427:24;:36;;;;357:114:::0;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.7.0;\r\n\r\ncontract Migrations {\r\n    address public owner = msg.sender;\r\n    uint256 public last_completed_migration;\r\n\r\n    modifier restricted() {\r\n        require(\r\n            msg.sender == owner,\r\n            \"This function is restricted to the contract's owner\"\r\n        );\r\n        _;\r\n    }\r\n\r\n    function setCompleted(uint256 completed) public restricted {\r\n        last_completed_migration = completed;\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\HP\\Documents\\Ethereum Voting App\\contracts\\Migrations.sol",
+  "sourcePath": "D:\\Ethereum voting app\\Ethereum-Voting-App\\contracts\\Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
-      "Migrations": [
-        341
-      ]
+      "Migrations": [341]
     },
     "id": 342,
     "license": "MIT",
@@ -64,12 +62,7 @@
     "nodes": [
       {
         "id": 310,
-        "literals": [
-          "solidity",
-          ">=",
-          "0.7",
-          ".0"
-        ],
+        "literals": ["solidity", ">=", "0.7", ".0"],
         "nodeType": "PragmaDirective",
         "src": "33:24:1"
       },
@@ -81,9 +74,7 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 341,
-        "linearizedBaseContracts": [
-          341
-        ],
+        "linearizedBaseContracts": [341],
         "name": "Migrations",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -278,10 +269,7 @@
                       "id": 318,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        -18,
-                        -18
-                      ],
+                      "overloadedDeclarations": [-18, -18],
                       "referencedDeclaration": -18,
                       "src": "209:7:1",
                       "typeDescriptions": {
@@ -471,21 +459,14 @@
     "attributes": {
       "absolutePath": "project:/contracts/Migrations.sol",
       "exportedSymbols": {
-        "Migrations": [
-          341
-        ]
+        "Migrations": [341]
       },
       "license": "MIT"
     },
     "children": [
       {
         "attributes": {
-          "literals": [
-            "solidity",
-            ">=",
-            "0.7",
-            ".0"
-          ]
+          "literals": ["solidity", ">=", "0.7", ".0"]
         },
         "id": 310,
         "name": "PragmaDirective",
@@ -494,18 +475,12 @@
       {
         "attributes": {
           "abstract": false,
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
+          "baseContracts": [null],
+          "contractDependencies": [null],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            341
-          ],
+          "linearizedBaseContracts": [341],
           "name": "Migrations",
           "scope": 342
         },
@@ -549,9 +524,7 @@
                   {
                     "attributes": {
                       "argumentTypes": null,
-                      "overloadedDeclarations": [
-                        null
-                      ],
+                      "overloadedDeclarations": [null],
                       "referencedDeclaration": -15,
                       "type": "msg",
                       "value": "msg"
@@ -610,9 +583,7 @@
             "children": [
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 317,
@@ -631,9 +602,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "tryCall": false,
                           "type": "tuple()",
                           "type_conversion": false
@@ -651,10 +620,7 @@
                                   "typeString": "literal_string \"This function is restricted to the contract's owner\""
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                -18,
-                                -18
-                              ],
+                              "overloadedDeclarations": [-18, -18],
                               "referencedDeclaration": -18,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
@@ -693,9 +659,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": -15,
                                       "type": "msg",
                                       "value": "msg"
@@ -712,9 +676,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 314,
                                   "type": "address",
                                   "value": "owner"
@@ -822,9 +784,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 334,
@@ -839,9 +799,7 @@
                   {
                     "attributes": {
                       "argumentTypes": null,
-                      "overloadedDeclarations": [
-                        null
-                      ],
+                      "overloadedDeclarations": [null],
                       "referencedDeclaration": 328,
                       "type": "modifier ()",
                       "value": "restricted"
@@ -873,9 +831,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 316,
                               "type": "uint256",
                               "value": "last_completed_migration"
@@ -887,9 +843,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 330,
                               "type": "uint256",
                               "value": "completed"
