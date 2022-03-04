@@ -2,15 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import * as faceapi from "face-api.js";
 import "./Verification.css";
 import { useNavigate } from "react-router-dom";
+import { RingLoader } from "react-spinners";
+import { css } from "@emotion/react";
 
 const Verification = () => {
   const videoHeight = 480;
   const videoWidth = 640;
   const [initializing, setInitializing] = useState(false);
+  const [message, setMessage] = useState("");
   const videoRef = useRef();
   const canvasRef = useRef();
   let navigate = useNavigate();
   let result = [];
+  let labels;
 
   useEffect(() => {
     const loadModels = async () => {
@@ -87,9 +91,11 @@ const Verification = () => {
           });
           drawBox.draw(canvasRef.current, resizedDetections);
         });
-        if (results[0]._label === "Nirajan") {
+        if (results[0]._label == sessionStorage.getItem("name").split(" ")[0]) {
           navigate("/voter/dashboard");
           window.location.reload();
+        } else {
+          setMessage("Face could not be verified");
         }
       }
     }, 1000);
@@ -97,14 +103,15 @@ const Verification = () => {
 
   function loadLabeledImages() {
     const label = sessionStorage.getItem("name");
-    let labels = ["Nirajan"];
+    const imageURL = sessionStorage.getItem("pictureURL");
+    console.log(imageURL);
+    labels = label.split(" ", 1);
     return Promise.all(
       labels.map(async (label) => {
         const descriptions = [];
 
-        const img = await faceapi.fetchImage(
-          `http://localhost:3000/img/Nirajan/1.jpg`
-        );
+        const img = await faceapi.fetchImage(imageURL);
+        console.log(img);
         const detections = await faceapi
           .detectSingleFace(img)
           .withFaceLandmarks()
@@ -115,9 +122,27 @@ const Verification = () => {
       })
     );
   }
+
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+  const color = "#101C03";
+
   return (
     <div className="detection">
-      <span>{initializing ? `initializing` : `Ready`}</span>
+      <span>
+        {initializing ? (
+          <RingLoader
+            color={color}
+            loading={initializing}
+            css={override}
+            size={100}
+          />
+        ) : null}
+        <span className="alert">{message}</span>
+      </span>
       <div className="display-flex justify-content-center">
         <video
           ref={videoRef}
@@ -127,6 +152,7 @@ const Verification = () => {
           width={videoWidth}
           onPlay={handleVideoOnPlay}
         ></video>
+
         <canvas ref={canvasRef} className="position-absolute"></canvas>
       </div>
     </div>

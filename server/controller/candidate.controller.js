@@ -52,6 +52,26 @@ export const getAllManifestos = async (req, res) => {
   }
 };
 
+export const getManifestos = async (req, res) => {
+  try {
+    const manifestos = await Candidate.find();
+    if (manifestos) {
+      res.status(200).json({
+        status: true,
+        data: manifestos,
+      });
+    } else {
+      res.status(401).json({
+        message: "Failed to retrieve manifestos",
+      });
+    }
+  } catch (error) {
+    res.status(401).json({
+      message: error,
+    });
+  }
+};
+
 export const candidateRegister = async (req, res) => {
   try {
     const body = req.body;

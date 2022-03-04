@@ -26,12 +26,6 @@ import { css } from "@emotion/react";
 
 import { RingLoader } from "react-spinners";
 
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-
 const Login = () => {
   const BASE_API_URL = "http://localhost:4000/api/user/login";
   const navigate = useNavigate();
@@ -64,6 +58,7 @@ const Login = () => {
           sessionStorage.setItem("name", response.data.data.name);
           sessionStorage.setItem("userType", response.data.data.user_type);
           sessionStorage.setItem("email", response.data.data.email);
+          sessionStorage.setItem("pictureURL", response.data.data.pictureURL);
           navigate("/verify");
           setIsLoading(false);
           setIsSubmitted(false);

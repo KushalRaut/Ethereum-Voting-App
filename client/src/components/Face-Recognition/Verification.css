@@ -13,3 +13,7 @@ video {
 .position-absolute {
   position: absolute;
 }
+
+.alert {
+  color: red;
+}
