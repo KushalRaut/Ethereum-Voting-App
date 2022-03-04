@@ -1,20 +1,40 @@
-import React, { useState } from "react";
-import "../../styles/Navbar.css";
-import { Link } from "react-router-dom";
-import img from "./admin-img.png";
-import { SiHiveBlockchain } from "react-icons/si";
-import { FaCaretDown } from "react-icons/fa";
+import React, { useState, useEffect } from 'react'
+import '../../styles/Navbar.css'
+import { Link } from 'react-router-dom'
+import img from './admin-img.png'
+import { SiHiveBlockchain } from 'react-icons/si'
+import { FaCaretDown } from 'react-icons/fa'
+import axios from 'axios'
 
 const Navbar = () => {
-  const [options, setOptions] = useState(false);
+  const [options, setOptions] = useState(false)
+  useEffect(() => {
+    fetchUserData()
+  }, [])
+
+  const [userData, setUserData] = useState({})
+
+  const fetchUserData = async () => {
+    try {
+      axios
+        .post('http://localhost:4000/api/user/email', {
+          email: sessionStorage.getItem('email'),
+        })
+        .then(function (response) {
+          setUserData(response.data.data)
+        })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   const optionsHandler = () => {
     if (options) {
-      setOptions(false);
+      setOptions(false)
     } else {
-      setOptions(true);
+      setOptions(true)
     }
-  };
+  }
 
   return (
     <>
@@ -32,7 +52,7 @@ const Navbar = () => {
           >
             <img src={img} className="dp-image" />
             <span className="user-name py-2">
-              Admin <FaCaretDown />
+              { userData && userData.name } <FaCaretDown />
             </span>
             {options && (
               <div className="options-admin">
@@ -53,7 +73,7 @@ const Navbar = () => {
         </div>
       </nav>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

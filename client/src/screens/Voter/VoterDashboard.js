@@ -30,7 +30,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/profile" className="link d-block">
+              <Link to="/profile" className="link d-block">
                 <FaUserEdit />
                 <span className="mx-3 py-2">User</span>
               </Link>
@@ -54,7 +54,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/chat" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <IoMdChatboxes />
                 <span className="mx-3 py-2">Message</span>
               </Link>
@@ -62,7 +62,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/voter/support" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <MdSupportAgent />
                 <span className="mx-3 py-2">Support</span>
               </Link>
@@ -70,7 +70,7 @@ const VoterDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/developers" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <MdDeveloperMode />
                 <span className="mx-3 py-2">Developers</span>
               </Link>
@@ -112,11 +112,14 @@ const VoterDashboard = () => {
               <div className="card card-chat w-100 h-100">
                 <div className="card-body">
                   <div className="text-center">
-                    <h2 className="text-white py-3">CHAT</h2>
+                    <h2 className="text-white py-3">MANIFESTOS</h2>
                   </div>
                 </div>
-                <Link className="card-footer text-white " to="/voter/chat">
-                  <span className="float-left">Message with candidates ❯</span>
+                <Link
+                  className="card-footer text-white "
+                  to="/voter/manifestos"
+                >
+                  <span className="float-left">View all Manifestos ❯</span>
                 </Link>
               </div>
             </div>
@@ -127,7 +130,7 @@ const VoterDashboard = () => {
                     <h2 className="text-white py-3">VIEW INFO</h2>
                   </div>
                 </div>
-                <Link className="card-footer text-white " to="/voter/profile">
+                <Link className="card-footer text-white " to="/profile">
                   <span className="float-left">View & Edit Info ❯</span>
                 </Link>
               </div>
@@ -139,7 +142,7 @@ const VoterDashboard = () => {
                     <h2 className="text-white py-3">LIVE FEED</h2>
                   </div>
                 </div>
-                <Link className="card-footer text-white " to="/voter/live">
+                <Link className="card-footer text-white " to="/comingsoon">
                   <span className="float-left">View live speech ❯</span>
                 </Link>
               </div>

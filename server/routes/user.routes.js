@@ -10,7 +10,7 @@ import { upload } from "../multer/multer.js";
 
 const router = express.Router();
 
-router.get("/email", getUserByEmail);
+router.post("/email", getUserByEmail);
 router.get("/:id", getUserById);
 router.post("/register", upload.single("photo"), userRegister);
 router.post("/login", userLogin);
