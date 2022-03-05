@@ -149,7 +149,7 @@ const ViewProfile = () => {
                     <Form action="#">
                       <ImageWrapper>
                         <FormLabel htmlFor="party-name">Photo:</FormLabel>
-                        <PreviewImage src={PPImage} alt="no-img" />
+                        <PreviewImage src={userData.pictureURL} alt="no-img" />
                       </ImageWrapper>
                       <InputWrapper>
                         <InputCol1>

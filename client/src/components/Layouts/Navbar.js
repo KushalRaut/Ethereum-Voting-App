@@ -53,7 +53,7 @@ const Navbar = () => {
             className="btn btn-dark text-white d-flex"
             onClick={optionsHandler}
           >
-            <img src={Pimage} className="dp-image" />
+            <img src={userData.pictureURL} className="dp-image" />
             <span className="user-name py-2">
               {userData && userData.name} <FaCaretDown />
             </span>

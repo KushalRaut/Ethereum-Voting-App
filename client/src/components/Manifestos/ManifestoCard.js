@@ -16,6 +16,8 @@ const CardImage = styled.img`
   object-fit: cover;
   margin: auto;
   display: block;
+  width:300px ;
+  height:300px ;
 `
 
 const CardTitle = styled.span`
@@ -32,10 +34,8 @@ const ManifestoCard = ({ manifesto }) => {
         <b>Manifesto Keywords</b> : <i>{manifesto.manifestoWords}</i>
       </span>
 
-      <CardImage src={NCPSym} />
-      <span>
-        {manifesto.manifestoDescription}
-      </span>
+      <CardImage src={manifesto.partyImage} />
+      <span>{manifesto.manifestoDescription}</span>
     </CardContainer>
   )
 }
