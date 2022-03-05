@@ -1,13 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../styles/Navbar.css'
 import { Link } from 'react-router-dom'
 import Pimage from '../../screens/Voter/ppphoto.jpg'
 import { NavButton } from './NavButtonElement'
 import { SiHiveBlockchain } from 'react-icons/si'
 import { FaCaretDown } from 'react-icons/fa'
+import axios from 'axios'
 
 const Navbar = () => {
   const [options, setOptions] = useState(false)
+
+  useEffect(() => {
+    fetchUserData()
+  }, [])
+
+  const [userData, setUserData] = useState({})
+
+  const fetchUserData = async () => {
+    try {
+      axios
+        .post('http://localhost:4000/api/user/email', {
+          email: sessionStorage.getItem('email'),
+        })
+        .then(function (response) {
+          setUserData(response.data.data)
+        })
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   const optionsHandler = () => {
     if (options) {
@@ -32,24 +53,14 @@ const Navbar = () => {
             className="btn btn-dark text-white d-flex"
             onClick={optionsHandler}
           >
-            <img src={Pimage} className="dp-image" />
+            <img src={userData.pictureURL} className="dp-image" />
             <span className="user-name py-2">
-              Kushal Raut <FaCaretDown />
+              {userData && userData.name} <FaCaretDown />
             </span>
             {options && (
               <div className="options">
                 <div className="option">
-                  <Link className="option-link" to="/voter/profile">
-                    <span className="d-block">Profile</span>
-                  </Link>
-                </div>
-                <div className="option">
-                  <Link className="option-link" to="/voter/votes">
-                    <span className="d-block">Votes</span>
-                  </Link>
-                </div>
-                <div className="option">
-                  <Link className="option-link" to="/voter/help">
+                  <Link className="option-link" to="/comingsoon">
                     <span className="d-block">Help</span>
                   </Link>
                 </div>

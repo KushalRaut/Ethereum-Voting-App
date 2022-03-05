@@ -15,6 +15,9 @@ import AddCandidate from './components/Blockchain/AddCandidate'
 import ManageCandidates from './components/Blockchain/ManageCandidates'
 import LiveData from './components/Blockchain/LiveData'
 import GetMetaId from './components/GetMetaId/GetMetaId'
+import ViewManifestos from './components/Manifestos/ViewManifestos'
+import ComingSoon from './components/Layouts/ComingSoon'
+import ViewProfile from './components/ViewProfile/ViewProfile'
 
 const App = () => {
   const [user, setUser] = useState('')
@@ -27,6 +30,7 @@ const App = () => {
         <Route path="/register" element={<RegistrationForm />} />
         <Route path="/verify" element={<OtpVerification />} />
         <Route path="/voter/dashboard" element={<VoterDashboard />} />
+        <Route path="/voter/manifestos" element={<ViewManifestos />} />
         <Route path="/candidate/dashboard" element={<CandidateDashboard />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/candidate/manifesto" element={<CandidateManifesto />} />
@@ -36,7 +40,9 @@ const App = () => {
         <Route path="/facial-verification" element={<Verification />} />
         <Route path="/admin/addCandidate" element={<AddCandidate />} />
         <Route path="/admin/manageCandidates" element={<ManageCandidates />} />
-        <Route path="/walletid" element={<GetMetaId />} exact/>
+        <Route path="/walletid" element={<GetMetaId />} exact />
+        <Route path="/comingsoon" element={<ComingSoon />} />
+        <Route path="/profile" element={<ViewProfile />} />
       </Routes>
     </>
   )

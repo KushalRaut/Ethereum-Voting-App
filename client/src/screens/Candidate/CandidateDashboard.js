@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Pimage from "../Voter/ppphoto.jpg";
-import "../Voter/voterDashboard.css";
-import { Link } from "react-router-dom";
-import Navbar from "../../components/Layouts/Navbar";
-import { SiHiveBlockchain } from "react-icons/si";
-import { RiDashboardLine } from "react-icons/ri";
-import { FaUserEdit, FaVoteYea, FaCaretDown } from "react-icons/fa";
-import { ImStatsBars } from "react-icons/im";
-import { IoMdChatboxes } from "react-icons/io";
-import { RiLiveFill } from "react-icons/ri";
-import { MdSupportAgent, MdDeveloperMode } from "react-icons/md";
+import React, { useState } from 'react'
+import Pimage from '../Voter/ppphoto.jpg'
+import '../Voter/voterDashboard.css'
+import { Link } from 'react-router-dom'
+import Navbar from '../../components/Layouts/Navbar'
+import { SiHiveBlockchain } from 'react-icons/si'
+import { RiDashboardLine } from 'react-icons/ri'
+import { FaUserEdit, FaVoteYea, FaCaretDown } from 'react-icons/fa'
+import { ImStatsBars } from 'react-icons/im'
+import { IoMdChatboxes } from 'react-icons/io'
+import { RiLiveFill } from 'react-icons/ri'
+import { MdSupportAgent, MdDeveloperMode } from 'react-icons/md'
 
 const CandidateDashboard = () => {
   return (
@@ -30,7 +30,7 @@ const CandidateDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/candidate/profile" className="link d-block">
+              <Link to="/profile" className="link d-block">
                 <FaUserEdit />
                 <span className="mx-3 py-2">User</span>
               </Link>
@@ -38,7 +38,7 @@ const CandidateDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/candidate/live" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <RiLiveFill />
                 <span className="mx-3 py-2">Go Live</span>
               </Link>
@@ -46,7 +46,7 @@ const CandidateDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/candidate/results" className="link d-block">
+              <Link to="/livedata" className="link d-block">
                 <ImStatsBars />
                 <span className="mx-3 py-2">Analytics</span>
               </Link>
@@ -54,7 +54,7 @@ const CandidateDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/candidate/chat" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <IoMdChatboxes />
                 <span className="mx-3 py-2">Message</span>
               </Link>
@@ -62,7 +62,7 @@ const CandidateDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/support" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <MdSupportAgent />
                 <span className="mx-3 py-2">Support</span>
               </Link>
@@ -70,7 +70,7 @@ const CandidateDashboard = () => {
           </div>
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
-              <Link to="/developers" className="link d-block">
+              <Link to="/comingsoon" className="link d-block">
                 <MdDeveloperMode />
                 <span className="mx-3 py-2">Developers</span>
               </Link>
@@ -89,7 +89,7 @@ const CandidateDashboard = () => {
                     <h1 className="text-white py-3">VIEW LIVE RESULTS</h1>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/candidate/results">
+                <Link class="card-footer text-white " to="/livedata">
                   <span class="float-left">View Realtime Results</span>
                 </Link>
               </div>
@@ -103,7 +103,7 @@ const CandidateDashboard = () => {
                     <h2 className="text-white py-3">GO LIVE</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/candidate/live">
+                <Link class="card-footer text-white " to="/comingsoon">
                   <span class="float-left">Go live to voters</span>
                 </Link>
               </div>
@@ -115,7 +115,7 @@ const CandidateDashboard = () => {
                     <h2 className="text-white py-3">CHAT</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/candidate/chat">
+                <Link class="card-footer text-white " to="/comingsoon">
                   <span class="float-left">Message with voters</span>
                 </Link>
               </div>
@@ -127,7 +127,7 @@ const CandidateDashboard = () => {
                     <h2 className="text-white py-3">VIEW INFO</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/candidate/profile">
+                <Link class="card-footer text-white " to="/profile">
                   <span class="float-left">View & Edit Info</span>
                 </Link>
               </div>
@@ -140,7 +140,7 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
                 <Link class="card-footer text-white " to="/candidate/manifesto">
-                  <span class="float-left">View manifesto</span>
+                  <span class="float-left">Post manifesto</span>
                 </Link>
               </div>
             </div>
@@ -148,7 +148,7 @@ const CandidateDashboard = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CandidateDashboard;
+export default CandidateDashboard

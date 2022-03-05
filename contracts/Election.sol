@@ -73,19 +73,19 @@ contract Election {
 
 
     //setting up the event that is to be triggered once the transaction is done i.e voting
-     event votesuccess(
-        uint id,
-        string name,
-        string party,
-        uint votecount
-    );
+    //  event votesuccess(
+    //     uint id,
+    //     string name,
+    //     string party,
+    //     uint votecount
+    // );
 
     function Vote(uint256 _id) public {
         //make sure that the candiate has not votes
         require(!votedornot[msg.sender], "You have already voted");
 
         //make sure that the candidate is valid
-        require(candidates[_id].id != 0, "The id does not exist");
+        // require(candidates[_id].id != 0, "The id does not exist");
 
         //now we increase the vote count of the candidate
         candidates[_id].votecount += 1;
@@ -93,6 +93,6 @@ contract Election {
         //now setting the voted value of the voter to be true
         votedornot[msg.sender] = true;
 
-        emit votesuccess( _id, candidates[_id].name,candidates[_id].party, candidates[_id].votecount);
+        // emit votesuccess( _id, candidates[_id].name,candidates[_id].party, candidates[_id].votecount);
     }
 }

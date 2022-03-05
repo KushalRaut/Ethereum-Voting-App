@@ -4,11 +4,13 @@ import {
   userLogin,
   getUserById,
   verifyLogin,
+  getUserByEmail,
 } from "../controller/user.controller.js";
 import { upload } from "../multer/multer.js";
 
 const router = express.Router();
 
+router.post("/email", getUserByEmail);
 router.get("/:id", getUserById);
 router.post("/register", upload.single("photo"), userRegister);
 router.post("/login", userLogin);

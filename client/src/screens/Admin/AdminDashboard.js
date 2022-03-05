@@ -51,14 +51,7 @@ const AdminDashboard = () => {
               </Link>
             </div>
           </div>
-          <div className="sidebar-items">
-            <div className="sidebar-titles py-3 px-1">
-              <Link to="/admin/manageVoters" className="link d-block">
-                <MdManageAccounts />
-                <span className="mx-3 py-2">Manage Voters</span>
-              </Link>
-            </div>
-          </div>
+
           <div className="sidebar-items">
             <div className="sidebar-titles py-3 px-1">
               <Link to="/admin/report" className="link d-block">
@@ -91,14 +84,11 @@ const AdminDashboard = () => {
               <div class="card card-result w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h2 className="text-white py-3">MANAGE CANDIDATES</h2>
+                    <h2 className="text-white py-3">ADD CANDIDATES</h2>
                   </div>
                 </div>
-                <Link
-                  class="card-footer text-white "
-                  to="/admin/manageCandidates"
-                >
-                  <span class="float-left">Edit & Delete Candidate ❯</span>
+                <Link class="card-footer text-white " to="/admin/addCandidates">
+                  <span class="float-left">Add New Candidate ❯</span>
                 </Link>
               </div>
             </div>
@@ -106,14 +96,14 @@ const AdminDashboard = () => {
               <div class="card card-chat w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h2 className="text-white py-3">MAIL CANDIDATES</h2>
+                    <h2 className="text-white py-3">MANAGE CANDIDATES</h2>
                   </div>
                 </div>
                 <Link
                   class="card-footer text-white "
-                  to="/admin/mailCandidates"
+                  to="/admin/manageCandidates"
                 >
-                  <span class="float-left">Send E-Mail to Candidates ❯</span>
+                  <span class="float-left">Manage Existing Candidates ❯</span>
                 </Link>
               </div>
             </div>
@@ -121,10 +111,10 @@ const AdminDashboard = () => {
               <div class="card card-info w-100 h-100">
                 <div class="card-body">
                   <div class="text-center">
-                    <h2 className="text-white py-3">MANAGE VOTERS</h2>
+                    <h2 className="text-white py-3">ALL VOTERS</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/admin/manageVoters">
+                <Link class="card-footer text-white " to="/comingsoon">
                   <span class="float-left">View & Edit Voters ❯</span>
                 </Link>
               </div>
@@ -136,7 +126,7 @@ const AdminDashboard = () => {
                     <h2 className="text-white py-3">MESSAGE VOTERS</h2>
                   </div>
                 </div>
-                <Link class="card-footer text-white " to="/admin/messageVoters">
+                <Link class="card-footer text-white " to="/comingsoon">
                   <span class="float-left">Send SMS to Voters ❯</span>
                 </Link>
               </div>

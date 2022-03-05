@@ -6,6 +6,9 @@ import * as Yup from "yup";
 import "./registrationForm.css";
 import Image from "./456.jpg";
 import axios from "axios";
+import { css } from "@emotion/react";
+
+import { RingLoader } from "react-spinners";
 
 const RegistrationForm = () => {
   const BASE_API_URL = "http://localhost:4000/api/user/register";
@@ -13,6 +16,14 @@ const RegistrationForm = () => {
   const [respData, setRespdata] = useState();
   const [message, setMessage] = useState();
   const [file, setFile] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+  const color = "#101C03";
 
   const initialValues = {
     name: "",
@@ -24,6 +35,8 @@ const RegistrationForm = () => {
     user_type: "voter",
   };
   const onSubmit = (values) => {
+    setIsLoading(true);
+    setIsSubmitted(true);
     const data = new FormData();
     data.append("name", values.name);
     data.append("email", values.email);
@@ -43,8 +56,11 @@ const RegistrationForm = () => {
         if (response.data.status) {
           setRespdata(response.data);
           navigate("/login");
+          setIsLoading(false);
+          setIsSubmitted(false);
         } else {
           setMessage(response.data.message);
+          setIsSubmitted(false);
         }
       });
   };
@@ -198,6 +214,14 @@ const RegistrationForm = () => {
           </div>
           <div className="col-7" id="registration-picture">
             <img src={Image} className="w-75" />
+            {isSubmitted ? (
+              <RingLoader
+                color={color}
+                loading={isLoading}
+                css={override}
+                size={100}
+              />
+            ) : null}
           </div>
         </div>
       </div>
