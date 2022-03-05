@@ -1,5 +1,10 @@
 #main-div {
-  background-color: rgb(126, 231, 231);
+  background-color: #01bf71;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Encode Sans Expanded', sans-serif;
 }
 
 .w-75 {

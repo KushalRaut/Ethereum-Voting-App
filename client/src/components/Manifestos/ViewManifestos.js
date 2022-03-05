@@ -24,6 +24,8 @@ const ContentsContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(236, 230, 230);
+  padding: 1rem 0;
 `
 
 const ViewManifestos = () => {
@@ -118,7 +120,7 @@ const ViewManifestos = () => {
           </div>
         </div>
 
-        <div className="col-12 col-lg-9 col-md-7 col-sm-6 py-3">
+        <div className="col-12 col-lg-9 col-md-7 col-sm-6">
           <ContentsContainer>
             {fetching ? (
               <RingLoader color={color} css={override} size={100} />

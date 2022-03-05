@@ -30,6 +30,14 @@ const Navbar = () => {
     }
   }
 
+  const logoutHandler = () => {
+    sessionStorage.removeItem('phoneNo')
+    sessionStorage.removeItem('name')
+    sessionStorage.removeItem('userType')
+    sessionStorage.removeItem('email')
+    sessionStorage.removeItem('pictureURL')
+  }
+
   const optionsHandler = () => {
     if (options) {
       setOptions(false)
@@ -65,7 +73,13 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="option">
-                  <Link className="option-link" to="/">
+                  <Link
+                    className="option-link"
+                    onClick={() => {
+                      logoutHandler()
+                    }}
+                    to="/"
+                  >
                     <span className="d-block">Logout</span>
                   </Link>
                 </div>

@@ -88,15 +88,15 @@ const RegistrationForm = () => {
   return (
     <div id="main-div">
       <div className="container">
-        <h1> Registration Form</h1>
+        <h1 className="text-center"> Registration Form</h1>
         <div className="row">
           <div className="col-5">
             <form onSubmit={formik.handleSubmit}>
               <div className="form-group">
-                <label className="m-1">Full Name</label>
+                <label className="">Full Name</label>
                 <input
                   type="text"
-                  className="form-control m-1"
+                  className="form-control"
                   id="name"
                   placeholder="Enter full name"
                   onChange={formik.handleChange}
@@ -108,11 +108,11 @@ const RegistrationForm = () => {
                 ) : null}
               </div>
 
-              <label className="m-1">Email address</label>
               <div className="form-group">
+              <label className="">Email address</label>
                 <input
                   type="email"
-                  className="form-control m-1"
+                  className="form-control"
                   id="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
@@ -125,11 +125,11 @@ const RegistrationForm = () => {
                 ) : null}
               </div>
 
-              <label className="m-1">Location</label>
               <div className="form-group">
+              <label className="">Location</label>
                 <input
                   type="text"
-                  className="form-control m-1"
+                  className="form-control"
                   id="location"
                   placeholder="Enter location"
                   onChange={formik.handleChange}
@@ -141,11 +141,11 @@ const RegistrationForm = () => {
                 ) : null}
               </div>
 
-              <label className="m-1">Citizenship Number</label>
               <div className="form-group">
+              <label className="">Citizenship Number</label>
                 <input
                   type="text"
-                  className="form-control m-1"
+                  className="form-control"
                   id="citizenship_no"
                   placeholder="Enter citizenship number"
                   onChange={formik.handleChange}
@@ -158,11 +158,11 @@ const RegistrationForm = () => {
                 ) : null}
               </div>
 
-              <label className="m-1">Password</label>
               <div>
+              <label className="mx-2">Password</label>
                 <input
                   type="password"
-                  className="form-control m-1"
+                  className="form-control mx-2"
                   id="password"
                   placeholder="Password"
                   onChange={formik.handleChange}
@@ -174,11 +174,11 @@ const RegistrationForm = () => {
                 ) : null}
               </div>
 
-              <label className="m-1">Phone Number</label>
               <div className="form-group">
+              <label className="">Phone Number</label>
                 <input
                   type="text"
-                  className="form-control m-1"
+                  className="form-control"
                   id="phone_No"
                   placeholder="Enter your phone number"
                   onChange={formik.handleChange}
